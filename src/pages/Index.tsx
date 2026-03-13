@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Bell, ChevronRight, Sparkles, Shield, Users, Award, Zap } from 'lucide-react';
+import { Search, Bell, ChevronRight, Sparkles, Shield, Users, Award } from 'lucide-react';
+import logoEuTeDisse from '@/assets/logo-eu-te-disse.png';
 import { Button } from '@/components/ui/button';
 import MarketCard from '@/components/market/MarketCard';
 import CategoryBadge from '@/components/market/CategoryBadge';
