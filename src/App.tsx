@@ -35,9 +35,7 @@ const ProtectedRoutes = () => {
     return <Navigate to="/login" replace />;
   }
 
-  if (!profile || profile.status !== 'approved') {
-    return <PendingApproval />;
-  }
+  // No longer require approval — all confirmed users get access
 
   return (
     <AppLayout />
