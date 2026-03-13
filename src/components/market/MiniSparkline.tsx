@@ -23,19 +23,20 @@ const MiniSparkline: React.FC<MiniSparklineProps> = ({ data, positive = true, wi
     })
     .join(' ');
 
-  const color = positive ? 'hsl(155, 75%, 42%)' : 'hsl(0, 75%, 55%)';
+  const color = positive ? 'hsl(152, 60%, 42%)' : 'hsl(0, 72%, 52%)';
+  const uniqueId = `spark-${positive}-${data.join('')}`;
 
   return (
     <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} className="flex-shrink-0">
       <defs>
-        <linearGradient id={`grad-${positive}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor={color} stopOpacity="0.3" />
+        <linearGradient id={uniqueId} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={color} stopOpacity="0.2" />
           <stop offset="100%" stopColor={color} stopOpacity="0" />
         </linearGradient>
       </defs>
       <polygon
         points={`${padding},${height} ${points} ${width - padding},${height}`}
-        fill={`url(#grad-${positive})`}
+        fill={`url(#${uniqueId})`}
       />
       <polyline
         points={points}

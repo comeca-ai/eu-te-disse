@@ -107,22 +107,22 @@ const MarketDetail = () => {
             <AreaChart data={chartData}>
               <defs>
                 <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="hsl(15, 90%, 55%)" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="hsl(15, 90%, 55%)" stopOpacity={0} />
+                  <stop offset="5%" stopColor="hsl(260, 65%, 58%)" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="hsl(260, 65%, 58%)" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <XAxis dataKey="name" tick={{ fontSize: 10, fill: 'hsl(230, 12%, 50%)' }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fontSize: 10, fill: 'hsl(230, 12%, 50%)' }} axisLine={false} tickLine={false} domain={['auto', 'auto']} />
+              <XAxis dataKey="name" tick={{ fontSize: 10, fill: 'hsl(230, 10%, 45%)' }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fontSize: 10, fill: 'hsl(230, 10%, 45%)' }} axisLine={false} tickLine={false} domain={['auto', 'auto']} />
               <Tooltip
                 contentStyle={{
-                  background: 'hsl(235, 22%, 9%)',
-                  border: '1px solid hsl(235, 18%, 15%)',
+                  background: 'hsl(0, 0%, 100%)',
+                  border: '1px solid hsl(230, 15%, 88%)',
                   borderRadius: '8px',
                   fontSize: '12px',
-                  color: 'hsl(220, 15%, 95%)',
+                  color: 'hsl(235, 25%, 12%)',
                 }}
               />
-              <Area type="monotone" dataKey="value" stroke="hsl(15, 90%, 55%)" fill="url(#colorValue)" strokeWidth={2} />
+              <Area type="monotone" dataKey="value" stroke="hsl(260, 65%, 58%)" fill="url(#colorValue)" strokeWidth={2} />
             </AreaChart>
           </ResponsiveContainer>
         </div>
