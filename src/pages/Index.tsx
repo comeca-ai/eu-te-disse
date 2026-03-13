@@ -29,7 +29,6 @@ const Index = () => {
           <div className="flex items-center gap-2">
             <img src={logoEuTeDisse} alt="Eu te disse" className="h-8" />
           </div>
-          </div>
           <div className="flex items-center gap-2">
             <StreakWidget streak={userProfile.streak} compact />
             <XPWidget level={userProfile.level} xp={userProfile.xp} xpToNext={userProfile.xpToNext} compact />
