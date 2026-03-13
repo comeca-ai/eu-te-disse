@@ -58,7 +58,7 @@ const Profile = () => {
               <Target size={18} className="text-accent" />
             </div>
             <div>
-              <p className="text-lg font-bold text-foreground">{userProfile.totalMarkets}</p>
+              <p className="text-lg font-bold text-foreground">0</p>
               <p className="text-xs text-muted-foreground">Palpites</p>
             </div>
           </div>
