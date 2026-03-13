@@ -77,6 +77,7 @@ const App = () => (
 
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Signup />} />
+            <Route path="/admin" element={<Admin />} />
 
             {/* Protected routes */}
             <Route element={<ProtectedRoutes />}>
