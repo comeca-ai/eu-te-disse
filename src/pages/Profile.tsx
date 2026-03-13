@@ -12,7 +12,7 @@ const Profile = () => {
     <div className="min-h-screen">
       <header className="sticky top-0 z-40 glass border-b border-border/50">
         <div className="flex items-center justify-between px-4 py-3 max-w-3xl mx-auto">
-          <h1 className="font-heading font-bold text-lg text-foreground">👤 Perfil</h1>
+          <h1 className="font-heading font-bold text-lg text-foreground">👤 Meu perfil</h1>
           <button className="w-9 h-9 rounded-lg bg-surface flex items-center justify-center text-muted-foreground hover:text-foreground">
             <Settings size={18} />
           </button>
@@ -46,7 +46,7 @@ const Profile = () => {
             </div>
             <div>
               <p className="text-lg font-bold text-foreground">{userProfile.accuracy}%</p>
-              <p className="text-xs text-muted-foreground">Precisão</p>
+              <p className="text-xs text-muted-foreground">Acerto</p>
             </div>
           </div>
           <div className="rounded-xl bg-card border border-border p-4 flex items-center gap-3">
@@ -55,7 +55,7 @@ const Profile = () => {
             </div>
             <div>
               <p className="text-lg font-bold text-foreground">{userProfile.totalMarkets}</p>
-              <p className="text-xs text-muted-foreground">Mercados</p>
+              <p className="text-xs text-muted-foreground">Palpites</p>
             </div>
           </div>
           <div className="rounded-xl bg-card border border-border p-4 flex items-center gap-3">
@@ -64,7 +64,7 @@ const Profile = () => {
             </div>
             <div>
               <p className="text-lg font-bold text-foreground">{userProfile.streak} dias</p>
-              <p className="text-xs text-muted-foreground">Streak</p>
+              <p className="text-xs text-muted-foreground">Sequência</p>
             </div>
           </div>
           <div className="rounded-xl bg-card border border-border p-4 flex items-center gap-3">

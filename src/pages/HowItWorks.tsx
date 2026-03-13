@@ -1,29 +1,29 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, TrendingUp, Shield, Users, Award, Lightbulb, CheckCircle, HelpCircle } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Shield, Users, Award, Lightbulb, CheckCircle, HelpCircle, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const HowItWorks = () => {
   const navigate = useNavigate();
 
   const steps = [
-    { num: '01', title: 'Escolha um mercado', desc: 'Explore centenas de perguntas sobre futebol, economia, política, entretenimento e mais. Escolha algo que você entende.', icon: '🔍' },
-    { num: '02', title: 'Dê seu palpite', desc: 'Compre cotas de "Sim" ou "Não". O preço reflete a probabilidade estimada pela comunidade. Quanto menor o preço, maior o potencial de retorno.', icon: '🎯' },
-    { num: '03', title: 'Acompanhe e ganhe', desc: 'Se sua previsão estiver correta quando o mercado for resolvido, você recebe R$ 1,00 por cota. Ganhe XP, badges e suba no ranking!', icon: '🏆' },
+    { num: '01', title: 'Escolha um palpite', desc: 'Explore centenas de perguntas sobre futebol, economia, BBB, política e mais. Escolha algo que você manja.', icon: '🔍' },
+    { num: '02', title: 'Mete a opinião', desc: 'Compre cotas de "Sim" ou "Não". O preço mostra o que a galera tá achando. Quanto menor o preço, maior o retorno se você acertar.', icon: '🎯' },
+    { num: '03', title: 'Acertou? Eu te disse!', desc: 'Se seu palpite tiver certo, você recebe R$ 1,00 por cota. Ganha XP, conquistas e sobe no ranking. Aí é só falar: eu te disse.', icon: '🏆' },
   ];
 
   const pillars = [
-    { icon: <Lightbulb size={24} />, title: 'Inteligência Coletiva', desc: 'Os preços refletem a sabedoria da multidão. Milhares de participantes contribuem para previsões mais precisas que especialistas individuais.' },
-    { icon: <Shield size={24} />, title: 'Transparência Total', desc: 'Cada mercado tem critérios de resolução claros, fontes públicas e histórico completo. Você sabe exatamente como e quando será resolvido.' },
-    { icon: <Users size={24} />, title: 'Comunidade Ativa', desc: 'Discuta, compartilhe análises, desafie amigos e participe de ligas regionais. Aprender junto é mais divertido.' },
-    { icon: <Award size={24} />, title: 'Recompensas por Consistência', desc: 'Ganhe XP, badges exclusivos e destaque no ranking. Quanto mais consistente, mais você é recompensado.' },
+    { icon: <Lightbulb size={24} />, title: 'Sabedoria da galera', desc: 'Os preços refletem o que milhares de pessoas pensam. A galera junta acerta mais que qualquer especialista sozinho.' },
+    { icon: <Shield size={24} />, title: 'Tudo às claras', desc: 'Cada palpite tem regras claras, fontes públicas e histórico completo. Zero surpresa na hora da resolução.' },
+    { icon: <Users size={24} />, title: 'Desafie seus amigos', desc: 'Discuta, compartilhe análises, desafie a galera e participe de ligas. Mais divertido quando é junto.' },
+    { icon: <Award size={24} />, title: 'Mandou bem? Leva prêmio', desc: 'Ganhe XP, conquistas exclusivas e destaque no ranking. Quanto mais você acerta, mais recompensas.' },
   ];
 
   const faqs = [
-    { q: 'Preciso pagar para participar?', a: 'O protótipo é apenas demonstrativo. Em uma versão real, você usaria saldo virtual ou real para comprar cotas.' },
-    { q: 'Como os mercados são resolvidos?', a: 'Cada mercado define critérios claros e fontes oficiais. Quando o prazo expira, a resolução é baseada nos fatos verificáveis.' },
-    { q: 'É seguro?', a: 'Priorizamos transparência e segurança. Todas as regras são públicas e o histórico é verificável.' },
-    { q: 'Posso participar de qualquer mercado?', a: 'Sim! Explore por categoria e encontre mercados que combinam com seus conhecimentos.' },
+    { q: 'Preciso pagar pra participar?', a: 'O protótipo é demonstrativo. Numa versão real, você usaria saldo virtual ou real pra comprar cotas.' },
+    { q: 'Como os palpites são resolvidos?', a: 'Cada mercado define critérios claros e fontes oficiais. Quando o prazo expira, a resolução é baseada nos fatos.' },
+    { q: 'É seguro?', a: 'Transparência total. Todas as regras são públicas e o histórico é verificável por qualquer pessoa.' },
+    { q: 'Posso palpitar em qualquer tema?', a: 'Sim! Tem futebol, economia, BBB, clima, tecnologia e muito mais. Escolhe o que você entende.' },
   ];
 
   return (
@@ -33,7 +33,7 @@ const HowItWorks = () => {
           <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-lg bg-surface flex items-center justify-center text-muted-foreground hover:text-foreground">
             <ArrowLeft size={18} />
           </button>
-          <h1 className="font-heading font-bold text-lg text-foreground">Como funciona</h1>
+          <h1 className="font-heading font-bold text-lg text-foreground">Como funciona?</h1>
         </div>
       </header>
 
@@ -41,10 +41,10 @@ const HowItWorks = () => {
         {/* Hero */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
-            Previsões que fazem<br /><span className="text-gradient-primary">sentido</span>
+            Palpitou, acertou,<br /><span className="text-gradient-primary">eu te disse.</span>
           </h2>
           <p className="text-muted-foreground max-w-md mx-auto">
-            Entenda como mercados de previsão funcionam e por que milhões de pessoas confiam na inteligência coletiva.
+            Entenda como funciona e por que milhares de pessoas confiam nos palpites coletivos.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Pillars */}
-        <h3 className="text-xl font-heading font-bold text-foreground text-center mb-6">Nossos pilares</h3>
+        <h3 className="text-xl font-heading font-bold text-foreground text-center mb-6">Por que funciona</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
           {pillars.map((p, i) => (
             <div key={i} className="rounded-xl bg-card border border-border p-5">
@@ -79,7 +79,7 @@ const HowItWorks = () => {
         </div>
 
         {/* FAQ */}
-        <h3 className="text-xl font-heading font-bold text-foreground text-center mb-6">Perguntas frequentes</h3>
+        <h3 className="text-xl font-heading font-bold text-foreground text-center mb-6">Dúvidas frequentes</h3>
         <div className="space-y-3 mb-12">
           {faqs.map((faq, i) => (
             <div key={i} className="rounded-xl bg-card border border-border p-4">
@@ -95,7 +95,7 @@ const HowItWorks = () => {
         {/* CTA */}
         <div className="text-center">
           <Button variant="market" size="xl" onClick={() => navigate('/')}>
-            Explorar mercados agora
+            Bora palpitar agora
           </Button>
         </div>
       </main>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Bell, ChevronRight, Sparkles, Shield, Users, Award } from 'lucide-react';
+import { Search, Bell, ChevronRight, Sparkles, Shield, Users, Award, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import MarketCard from '@/components/market/MarketCard';
 import CategoryBadge from '@/components/market/CategoryBadge';
@@ -27,9 +27,9 @@ const Index = () => {
         <div className="flex items-center justify-between px-4 py-3 max-w-5xl mx-auto">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm font-heading">M</span>
+              <Zap size={16} className="text-primary-foreground" />
             </div>
-            <span className="font-heading font-bold text-lg text-foreground">Mercado<span className="text-gradient-primary">BR</span></span>
+            <span className="font-heading font-bold text-lg text-foreground">eu te <span className="text-gradient-primary">disse</span></span>
           </div>
           <div className="flex items-center gap-2">
             <StreakWidget streak={userProfile.streak} compact />
@@ -53,18 +53,18 @@ const Index = () => {
           <div className="absolute bottom-4 left-8 w-24 h-24 rounded-full bg-secondary/5 blur-3xl" />
           <div className="relative">
             <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground leading-tight mb-3">
-              Entenda o que move<br />
-              <span className="text-gradient-primary">o Brasil</span>, em tempo real.
+              Você já sabia.<br />
+              <span className="text-gradient-primary">Agora prove.</span>
             </h1>
             <p className="text-muted-foreground text-sm md:text-base mb-6 max-w-md">
-              Participe de mercados de previsão sobre futebol, economia, política, entretenimento e muito mais. Teste sua visão e ganhe recompensas.
+              Dê seus palpites sobre futebol, economia, BBB, política e tudo que move o Brasil. Acertou? Então fala: <span className="text-foreground font-medium">eu te disse.</span>
             </p>
             <div className="flex gap-3">
               <Button variant="market" size="lg" onClick={() => navigate('/como-funciona')}>
-                Como funciona
+                Como funciona?
               </Button>
               <Button variant="glass" size="lg">
-                Explorar mercados
+                Bora palpitar
               </Button>
             </div>
           </div>
@@ -72,10 +72,10 @@ const Index = () => {
           {/* Pillars */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 relative">
             {[
-              { icon: <Sparkles size={16} />, label: 'Inteligência coletiva' },
-              { icon: <Shield size={16} />, label: 'Transparência' },
-              { icon: <Users size={16} />, label: 'Comunidade' },
-              { icon: <Award size={16} />, label: 'Recompensas' },
+              { icon: <Sparkles size={16} />, label: 'Sabedoria da galera' },
+              { icon: <Shield size={16} />, label: '100% transparente' },
+              { icon: <Users size={16} />, label: 'Desafie os amigos' },
+              { icon: <Award size={16} />, label: 'Ganhe recompensas' },
             ].map((p, i) => (
               <div key={i} className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-border/50 bg-card/50">
                 <span className="text-primary">{p.icon}</span>
@@ -106,11 +106,11 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Bombando no Brasil */}
+        {/* Tá pegando fogo */}
         {hotMarkets.length > 0 && (
           <section className="mb-6">
             <div className="flex items-center justify-between px-4 mb-3">
-              <h2 className="text-lg font-heading font-bold text-foreground">🔥 Bombando no Brasil</h2>
+              <h2 className="text-lg font-heading font-bold text-foreground">🔥 Tá pegando fogo</h2>
               <button className="text-xs text-primary font-medium flex items-center gap-0.5">
                 Ver todos <ChevronRight size={14} />
               </button>
@@ -127,7 +127,7 @@ const Index = () => {
         {resolvingToday.length > 0 && (
           <section className="mb-6">
             <div className="flex items-center justify-between px-4 mb-3">
-              <h2 className="text-lg font-heading font-bold text-foreground">⏰ Resolvendo hoje</h2>
+              <h2 className="text-lg font-heading font-bold text-foreground">⏰ Fecha hoje!</h2>
             </div>
             <div className="px-4 space-y-3">
               {resolvingToday.map(market => (
@@ -137,10 +137,10 @@ const Index = () => {
           </section>
         )}
 
-        {/* Mercados do dia */}
+        {/* Palpites do dia */}
         <section className="mb-6">
           <div className="flex items-center justify-between px-4 mb-3">
-            <h2 className="text-lg font-heading font-bold text-foreground">📊 Mercados do dia</h2>
+            <h2 className="text-lg font-heading font-bold text-foreground">📊 Palpites do dia</h2>
             <button className="text-xs text-primary font-medium flex items-center gap-0.5">
               Ver todos <ChevronRight size={14} />
             </button>
@@ -155,12 +155,12 @@ const Index = () => {
         {/* Comece aqui */}
         <section className="px-4 mb-8">
           <div className="rounded-xl border border-primary/20 bg-primary/5 p-5">
-            <h3 className="font-heading font-bold text-foreground mb-1">🎯 Novato? Comece aqui!</h3>
+            <h3 className="font-heading font-bold text-foreground mb-1">👋 Primeira vez aqui?</h3>
             <p className="text-sm text-muted-foreground mb-3">
-              Aprenda como funcionam os mercados de previsão em 3 passos simples e ganhe 100 XP de bônus.
+              Aprenda como dar seus palpites em 3 passos e ganhe 100 XP de bônus. É rapidinho.
             </p>
             <Button variant="market" size="sm" onClick={() => navigate('/como-funciona')}>
-              Começar agora
+              Bora lá
             </Button>
           </div>
         </section>

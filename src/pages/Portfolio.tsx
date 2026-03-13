@@ -16,7 +16,7 @@ const Portfolio = () => {
     <div className="min-h-screen">
       <header className="sticky top-0 z-40 glass border-b border-border/50">
         <div className="px-4 py-3 max-w-3xl mx-auto">
-          <h1 className="font-heading font-bold text-lg text-foreground">💼 Carteira</h1>
+          <h1 className="font-heading font-bold text-lg text-foreground">💼 Meus palpites</h1>
         </div>
       </header>
 
@@ -40,21 +40,21 @@ const Portfolio = () => {
           <div className="grid grid-cols-3 gap-3">
             <div className="rounded-lg bg-background/40 p-3 text-center">
               <p className="text-lg font-bold text-foreground">{positions.length}</p>
-              <p className="text-[10px] text-muted-foreground">Posições ativas</p>
+              <p className="text-[10px] text-muted-foreground">Palpites ativos</p>
             </div>
             <div className="rounded-lg bg-background/40 p-3 text-center">
               <p className="text-lg font-bold text-foreground">{userProfile.accuracy}%</p>
-              <p className="text-[10px] text-muted-foreground">Precisão</p>
+              <p className="text-[10px] text-muted-foreground">Acerto</p>
             </div>
             <div className="rounded-lg bg-background/40 p-3 text-center">
               <p className="text-lg font-bold text-foreground">{userProfile.totalMarkets}</p>
-              <p className="text-[10px] text-muted-foreground">Total mercados</p>
+              <p className="text-[10px] text-muted-foreground">Total palpites</p>
             </div>
           </div>
         </div>
 
         {/* Positions */}
-        <h2 className="text-sm font-heading font-bold text-foreground mb-3">Posições ativas</h2>
+        <h2 className="text-sm font-heading font-bold text-foreground mb-3">Palpites ativos</h2>
         <div className="space-y-3 mb-8">
           {positions.map((pos, i) => {
             const pnl = pos.currentValue - pos.invested;
@@ -77,7 +77,7 @@ const Portfolio = () => {
                 <div className="flex items-center justify-between text-xs">
                   <div className="flex gap-4 text-muted-foreground">
                     <span>Investido: R$ {pos.invested}</span>
-                    <span>Prob: {pos.probability}%</span>
+                    <span>Chance: {pos.probability}%</span>
                   </div>
                   <span className={cn("font-bold flex items-center gap-0.5", isUp ? "text-success" : "text-destructive")}>
                     {isUp ? '+' : ''}R$ {pnl.toFixed(2)}
@@ -90,7 +90,7 @@ const Portfolio = () => {
         </div>
 
         <Button variant="market" size="lg" className="w-full" onClick={() => navigate('/')}>
-          Explorar mais mercados
+          Bora palpitar mais
         </Button>
       </main>
     </div>

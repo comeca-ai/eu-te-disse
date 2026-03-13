@@ -58,12 +58,12 @@ export interface Position {
 }
 
 export const categories = [
-  { id: 'all', label: 'Todos', icon: '🔥' },
+  { id: 'all', label: 'Tudo', icon: '🔥' },
   { id: 'futebol', label: 'Futebol', icon: '⚽' },
   { id: 'politica', label: 'Política', icon: '🏛️' },
   { id: 'economia', label: 'Economia', icon: '📈' },
   { id: 'bbb', label: 'BBB / TV', icon: '📺' },
-  { id: 'tech', label: 'Tecnologia', icon: '💻' },
+  { id: 'tech', label: 'Tech', icon: '💻' },
   { id: 'clima', label: 'Clima', icon: '🌦️' },
   { id: 'cultura', label: 'Cultura Pop', icon: '🎬' },
   { id: 'esportes', label: 'Esportes', icon: '🏅' },
@@ -99,7 +99,7 @@ export const markets: Market[] = [
   },
   {
     id: '3',
-    question: 'BBB 27: Participante do Grupo Camarote chega à final?',
+    question: 'BBB 27: Participante do Camarote chega à final?',
     category: 'bbb',
     categoryIcon: '📺',
     probability: 45,
@@ -227,14 +227,14 @@ export const markets: Market[] = [
 ];
 
 export const missions: Mission[] = [
-  { id: '1', title: 'Primeiro palpite do dia', description: 'Participe de pelo menos 1 mercado hoje', xp: 50, progress: 0, total: 1, type: 'daily', icon: '🎯', completed: false },
+  { id: '1', title: 'Primeiro palpite do dia', description: 'Dê pelo menos 1 palpite hoje', xp: 50, progress: 0, total: 1, type: 'daily', icon: '🎯', completed: false },
   { id: '2', title: 'Explorador', description: 'Visite 3 categorias diferentes', xp: 30, progress: 2, total: 3, type: 'daily', icon: '🧭', completed: false },
-  { id: '3', title: 'Comentarista', description: 'Deixe um comentário em qualquer mercado', xp: 20, progress: 0, total: 1, type: 'daily', icon: '💬', completed: false },
-  { id: '4', title: 'Sequência de fogo', description: 'Mantenha seu streak por 7 dias', xp: 200, progress: 5, total: 7, type: 'weekly', icon: '🔥', completed: false },
-  { id: '5', title: 'Diversificado', description: 'Participe de mercados em 5 categorias diferentes', xp: 150, progress: 3, total: 5, type: 'weekly', icon: '🌈', completed: false },
-  { id: '6', title: 'Oráculo da rodada', description: 'Acerte 3 mercados seguidos', xp: 300, progress: 1, total: 3, type: 'weekly', icon: '🔮', completed: false },
-  { id: '7', title: 'Copa do Mundo Especial', description: 'Participe de 5 mercados sobre futebol', xp: 500, progress: 2, total: 5, type: 'special', icon: '⚽', completed: false },
-  { id: '8', title: 'Missão concluída!', description: 'Complete todas as missões diárias', xp: 100, progress: 3, total: 3, type: 'daily', icon: '✅', completed: true },
+  { id: '3', title: 'Opinião formada', description: 'Deixe um comentário em qualquer palpite', xp: 20, progress: 0, total: 1, type: 'daily', icon: '💬', completed: false },
+  { id: '4', title: 'Tá on fire', description: 'Mantenha sua sequência por 7 dias', xp: 200, progress: 5, total: 7, type: 'weekly', icon: '🔥', completed: false },
+  { id: '5', title: 'Diversificado', description: 'Palpite em 5 categorias diferentes', xp: 150, progress: 3, total: 5, type: 'weekly', icon: '🌈', completed: false },
+  { id: '6', title: 'Oráculo', description: 'Acerte 3 palpites seguidos', xp: 300, progress: 1, total: 3, type: 'weekly', icon: '🔮', completed: false },
+  { id: '7', title: 'Craque da rodada', description: 'Dê 5 palpites sobre futebol', xp: 500, progress: 2, total: 5, type: 'special', icon: '⚽', completed: false },
+  { id: '8', title: 'Mandou bem!', description: 'Complete todos os desafios diários', xp: 100, progress: 3, total: 3, type: 'daily', icon: '✅', completed: true },
 ];
 
 export const rankingUsers: RankingUser[] = [
@@ -251,18 +251,18 @@ export const rankingUsers: RankingUser[] = [
 ];
 
 export const badges: Badge[] = [
-  { id: '1', name: 'Oráculo do Futebol', description: 'Acertou 10 mercados de futebol', icon: '⚽', category: 'futebol', earned: true },
-  { id: '2', name: 'Radar Político', description: 'Participou de 20 mercados políticos', icon: '🏛️', category: 'politica', earned: true },
+  { id: '1', name: 'Oráculo do Futebol', description: 'Acertou 10 palpites de futebol', icon: '⚽', category: 'futebol', earned: true },
+  { id: '2', name: 'Radar Político', description: 'Deu 20 palpites em política', icon: '🏛️', category: 'politica', earned: true },
   { id: '3', name: 'Mestre do BBB', description: 'Acertou o vencedor do BBB', icon: '📺', category: 'bbb', earned: false },
-  { id: '4', name: 'Macro Guru', description: 'Acertou 5 previsões econômicas seguidas', icon: '📈', category: 'economia', earned: true },
-  { id: '5', name: 'Meteorologista', description: 'Acertou 10 previsões de clima', icon: '🌦️', category: 'clima', earned: false },
-  { id: '6', name: 'Crítico de Cinema', description: 'Participou de 15 mercados culturais', icon: '🎬', category: 'cultura', earned: false },
-  { id: '7', name: 'Streak Master', description: 'Manteve um streak de 30 dias', icon: '🔥', category: 'geral', earned: true },
-  { id: '8', name: 'Primeiro Palpite', description: 'Participou do primeiro mercado', icon: '🎯', category: 'geral', earned: true },
+  { id: '4', name: 'Macro Guru', description: 'Acertou 5 palpites econômicos seguidos', icon: '📈', category: 'economia', earned: true },
+  { id: '5', name: 'Meteorologista', description: 'Acertou 10 palpites de clima', icon: '🌦️', category: 'clima', earned: false },
+  { id: '6', name: 'Crítico de Cinema', description: 'Deu 15 palpites culturais', icon: '🎬', category: 'cultura', earned: false },
+  { id: '7', name: 'On Fire', description: 'Manteve sequência de 30 dias', icon: '🔥', category: 'geral', earned: true },
+  { id: '8', name: 'Primeiro Palpite', description: 'Deu o primeiro palpite', icon: '🎯', category: 'geral', earned: true },
   { id: '9', name: 'Top 10 Semanal', description: 'Ficou no Top 10 do ranking semanal', icon: '🏆', category: 'geral', earned: false },
-  { id: '10', name: 'Tech Visionary', description: 'Acertou 5 previsões de tecnologia', icon: '💻', category: 'tech', earned: false },
-  { id: '11', name: 'Atleta Digital', description: 'Participou de mercados em todas categorias', icon: '🏅', category: 'esportes', earned: false },
-  { id: '12', name: 'Comunidade Ativa', description: '100 comentários em mercados', icon: '💬', category: 'geral', earned: true },
+  { id: '10', name: 'Tech Visionary', description: 'Acertou 5 palpites de tecnologia', icon: '💻', category: 'tech', earned: false },
+  { id: '11', name: 'Atleta Digital', description: 'Palpitou em todas as categorias', icon: '🏅', category: 'esportes', earned: false },
+  { id: '12', name: 'Voz ativa', description: '100 comentários em palpites', icon: '💬', category: 'geral', earned: true },
 ];
 
 export const userProfile = {
