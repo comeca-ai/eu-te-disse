@@ -5,6 +5,7 @@ import MiniSparkline from './MiniSparkline';
 import type { Market } from '@/data/mockData';
 import { formatVolume } from '@/data/mockData';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface MarketCardProps {
   market: Market;
