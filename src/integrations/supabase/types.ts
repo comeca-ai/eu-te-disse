@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      missions: {
+        Row: {
+          created_at: string
+          description: string
+          expires_at: string
+          icon: string
+          id: string
+          status: string
+          title: string
+          total: number
+          type: string
+          xp: number
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          expires_at: string
+          icon?: string
+          id?: string
+          status?: string
+          title: string
+          total?: number
+          type?: string
+          xp?: number
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          expires_at?: string
+          icon?: string
+          id?: string
+          status?: string
+          title?: string
+          total?: number
+          type?: string
+          xp?: number
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           birth_date: string | null
@@ -52,6 +91,44 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      user_missions: {
+        Row: {
+          completed: boolean
+          completed_at: string | null
+          created_at: string
+          id: string
+          mission_id: string
+          progress: number
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          mission_id: string
+          progress?: number
+          user_id: string
+        }
+        Update: {
+          completed?: boolean
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          mission_id?: string
+          progress?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_missions_mission_id_fkey"
+            columns: ["mission_id"]
+            isOneToOne: false
+            referencedRelation: "missions"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       user_roles: {
         Row: {
