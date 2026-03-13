@@ -68,10 +68,10 @@ const Index = () => {
               Dê seus palpites sobre futebol, economia, BBB, política e tudo que move o Brasil. Acertou? Então fala: <span className="text-foreground font-medium">eu te disse.</span>
             </p>
             <div className="flex gap-3">
-              <Button variant="market" size="lg" onClick={() => navigate('/como-funciona')}>
+              <Button variant="market" size="lg" onClick={() => { if (!requireAuth()) navigate('/como-funciona'); }}>
                 Como funciona?
               </Button>
-              <Button variant="glass" size="lg">
+              <Button variant="glass" size="lg" onClick={() => requireAuth()}>
                 Bora palpitar
               </Button>
             </div>
