@@ -1,12 +1,16 @@
 import React from 'react';
 import { Settings, MapPin, Calendar, TrendingUp, Target, Award, Flame, Zap } from 'lucide-react';
 import XPWidget from '@/components/gamification/XPWidget';
-import { userProfile, badges } from '@/data/mockData';
+import { badges } from '@/data/mockData';
+import { useAuth } from '@/contexts/AuthContext';
 import { cn } from '@/lib/utils';
 
 const Profile = () => {
+  const { profile } = useAuth();
   const earnedBadges = badges.filter(b => b.earned);
   const lockedBadges = badges.filter(b => !b.earned);
+
+  const displayName = profile?.full_name || 'Usuário';
 
   return (
     <div className="min-h-screen">
