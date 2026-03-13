@@ -27,7 +27,7 @@ const MarketCard: React.FC<MarketCardProps> = ({ market, compact }) => {
 
   return (
     <button
-      onClick={() => navigate(`/mercado/${market.id}`)}
+      onClick={handleClick}
       className={cn(
         "w-full text-left rounded-xl border border-border bg-card p-4 transition-all duration-200 hover:bg-card-hover hover:border-primary/20 group",
         compact ? "min-w-[280px]" : ""

@@ -14,6 +14,15 @@ const Index = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchOpen, setSearchOpen] = useState(false);
   const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const requireAuth = () => {
+    if (!user) {
+      navigate('/login');
+      return true;
+    }
+    return false;
+  };
 
   const filteredMarkets = activeCategory === 'all'
     ? markets
