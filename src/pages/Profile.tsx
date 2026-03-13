@@ -34,7 +34,7 @@ const Profile = () => {
             <p className="text-sm text-muted-foreground">@{displayName.toLowerCase().replace(/\s/g, '')}</p>
             <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
               <span className="flex items-center gap-1"><MapPin size={12} />Brasil</span>
-              <span className="flex items-center gap-1"><Calendar size={12} />Desde {profile?.created_at ? new Date(profile.created_at).toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' }) : 'N/A'}</span>
+              <span className="flex items-center gap-1"><Calendar size={12} />Membro</span>
             </div>
           </div>
         </div>
