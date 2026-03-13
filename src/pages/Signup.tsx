@@ -81,6 +81,9 @@ const Signup = () => {
         data: {
           full_name: fullName.trim(),
           cpf: cpfDigits,
+          sex,
+          uf,
+          birth_date: birthDate,
         },
       },
     });
