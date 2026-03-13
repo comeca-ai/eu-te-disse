@@ -35,10 +35,18 @@ function validateCPF(cpf: string): boolean {
   return true;
 }
 
+const UF_OPTIONS = [
+  'AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG',
+  'PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'
+];
+
 const Signup = () => {
   const navigate = useNavigate();
   const [fullName, setFullName] = useState('');
   const [cpf, setCpf] = useState('');
+  const [sex, setSex] = useState('');
+  const [uf, setUf] = useState('');
+  const [birthDate, setBirthDate] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
