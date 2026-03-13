@@ -46,6 +46,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setProfile(data as Profile | null);
   };
 
+  const checkAdmin = async (userId: string) => {
+    const { data } = await supabase
+      .from('user_roles')
+      .select('role')
+      .eq('user_id', userId)
+      .eq('role', 'admin')
+      .maybeSingle();
+    setIsAdmin(!!data);
+  };
+
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
