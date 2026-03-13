@@ -32,9 +32,10 @@ const Profile = () => {
           <div>
             <h2 className="text-xl font-heading font-bold text-foreground">{displayName}</h2>
             <p className="text-sm text-muted-foreground">@{displayName.toLowerCase().replace(/\s/g, '')}</p>
-            <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
-              <span className="flex items-center gap-1"><MapPin size={12} />Brasil</span>
-              <span className="flex items-center gap-1"><Calendar size={12} />Membro</span>
+            <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground flex-wrap">
+              {profile?.uf && <span className="flex items-center gap-1"><MapPin size={12} />{profile.uf}</span>}
+              {profile?.sex && <span>{profile.sex === 'M' ? '♂ Masculino' : profile.sex === 'F' ? '♀ Feminino' : '⚧ Outro'}</span>}
+              {profile?.birth_date && <span className="flex items-center gap-1"><Calendar size={12} />{new Date().getFullYear() - new Date(profile.birth_date).getFullYear()} anos</span>}
             </div>
           </div>
         </div>

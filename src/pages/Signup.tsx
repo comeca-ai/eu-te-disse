@@ -135,6 +135,47 @@ const Signup = () => {
           </div>
 
           <div>
+            <Label htmlFor="sex">Sexo</Label>
+            <select
+              id="sex"
+              value={sex}
+              onChange={(e) => setSex(e.target.value)}
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <option value="">Selecione</option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+              <option value="O">Outro</option>
+            </select>
+            {errors.sex && <p className="text-xs text-destructive mt-1">{errors.sex}</p>}
+          </div>
+
+          <div>
+            <Label htmlFor="uf">Estado (UF)</Label>
+            <select
+              id="uf"
+              value={uf}
+              onChange={(e) => setUf(e.target.value)}
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <option value="">Selecione</option>
+              {UF_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
+            </select>
+            {errors.uf && <p className="text-xs text-destructive mt-1">{errors.uf}</p>}
+          </div>
+
+          <div>
+            <Label htmlFor="birthDate">Data de nascimento</Label>
+            <Input
+              id="birthDate"
+              type="date"
+              value={birthDate}
+              onChange={(e) => setBirthDate(e.target.value)}
+            />
+            {errors.birthDate && <p className="text-xs text-destructive mt-1">{errors.birthDate}</p>}
+          </div>
+
+          <div>
             <Label htmlFor="email">Email</Label>
             <Input
               id="email"
