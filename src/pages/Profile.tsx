@@ -49,7 +49,7 @@ const Profile = () => {
               <TrendingUp size={18} className="text-success" />
             </div>
             <div>
-              <p className="text-lg font-bold text-foreground">{userProfile.accuracy}%</p>
+              <p className="text-lg font-bold text-foreground">0%</p>
               <p className="text-xs text-muted-foreground">Acerto</p>
             </div>
           </div>
