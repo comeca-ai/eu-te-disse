@@ -8,6 +8,7 @@ import CategoryBadge from '@/components/market/CategoryBadge';
 import StreakWidget from '@/components/gamification/StreakWidget';
 import XPWidget from '@/components/gamification/XPWidget';
 import { markets, categories, userProfile } from '@/data/mockData';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState('all');
