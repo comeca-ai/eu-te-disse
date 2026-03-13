@@ -27,20 +27,20 @@ const Profile = () => {
         {/* Profile header */}
         <div className="flex items-center gap-4 mb-6">
           <div className="w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center text-2xl font-bold text-primary-foreground font-heading">
-            {userProfile.name.charAt(0)}
+            {displayName.charAt(0)}
           </div>
           <div>
-            <h2 className="text-xl font-heading font-bold text-foreground">{userProfile.name}</h2>
-            <p className="text-sm text-muted-foreground">{userProfile.username}</p>
+            <h2 className="text-xl font-heading font-bold text-foreground">{displayName}</h2>
+            <p className="text-sm text-muted-foreground">@{displayName.toLowerCase().replace(/\s/g, '')}</p>
             <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
-              <span className="flex items-center gap-1"><MapPin size={12} />{userProfile.region}</span>
-              <span className="flex items-center gap-1"><Calendar size={12} />Desde {userProfile.joinedDate}</span>
+              <span className="flex items-center gap-1"><MapPin size={12} />Brasil</span>
+              <span className="flex items-center gap-1"><Calendar size={12} />Desde {profile?.created_at ? new Date(profile.created_at).toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' }) : 'N/A'}</span>
             </div>
           </div>
         </div>
 
         {/* XP */}
-        <XPWidget level={userProfile.level} xp={userProfile.xp} xpToNext={userProfile.xpToNext} />
+        <XPWidget level={1} xp={0} xpToNext={1000} />
 
         {/* Stats grid */}
         <div className="grid grid-cols-2 gap-3 my-6">
