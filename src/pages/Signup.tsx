@@ -57,6 +57,9 @@ const Signup = () => {
     const newErrors: Record<string, string> = {};
     if (!fullName.trim()) newErrors.fullName = 'Nome é obrigatório';
     if (!validateCPF(cpf)) newErrors.cpf = 'CPF inválido';
+    if (!sex) newErrors.sex = 'Selecione o sexo';
+    if (!uf) newErrors.uf = 'Selecione o estado';
+    if (!birthDate) newErrors.birthDate = 'Data de nascimento é obrigatória';
     if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = 'Email inválido';
     if (password.length < 6) newErrors.password = 'Mínimo 6 caracteres';
     if (password !== confirmPassword) newErrors.confirmPassword = 'Senhas não conferem';
