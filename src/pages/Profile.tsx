@@ -76,7 +76,7 @@ const Profile = () => {
               <Zap size={18} className="text-gold" />
             </div>
             <div>
-              <p className="text-lg font-bold text-foreground">+R$ {userProfile.totalProfit}</p>
+              <p className="text-lg font-bold text-foreground">R$ 0</p>
               <p className="text-xs text-muted-foreground">Rendimento</p>
             </div>
           </div>
