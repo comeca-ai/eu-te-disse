@@ -35,10 +35,18 @@ function validateCPF(cpf: string): boolean {
   return true;
 }
 
+const UF_OPTIONS = [
+  'AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG',
+  'PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'
+];
+
 const Signup = () => {
   const navigate = useNavigate();
   const [fullName, setFullName] = useState('');
   const [cpf, setCpf] = useState('');
+  const [sex, setSex] = useState('');
+  const [uf, setUf] = useState('');
+  const [birthDate, setBirthDate] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -49,6 +57,9 @@ const Signup = () => {
     const newErrors: Record<string, string> = {};
     if (!fullName.trim()) newErrors.fullName = 'Nome é obrigatório';
     if (!validateCPF(cpf)) newErrors.cpf = 'CPF inválido';
+    if (!sex) newErrors.sex = 'Selecione o sexo';
+    if (!uf) newErrors.uf = 'Selecione o estado';
+    if (!birthDate) newErrors.birthDate = 'Data de nascimento é obrigatória';
     if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = 'Email inválido';
     if (password.length < 6) newErrors.password = 'Mínimo 6 caracteres';
     if (password !== confirmPassword) newErrors.confirmPassword = 'Senhas não conferem';
@@ -70,6 +81,9 @@ const Signup = () => {
         data: {
           full_name: fullName.trim(),
           cpf: cpfDigits,
+          sex,
+          uf,
+          birth_date: birthDate,
         },
       },
     });
@@ -118,6 +132,47 @@ const Signup = () => {
               inputMode="numeric"
             />
             {errors.cpf && <p className="text-xs text-destructive mt-1">{errors.cpf}</p>}
+          </div>
+
+          <div>
+            <Label htmlFor="sex">Sexo</Label>
+            <select
+              id="sex"
+              value={sex}
+              onChange={(e) => setSex(e.target.value)}
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <option value="">Selecione</option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+              <option value="O">Outro</option>
+            </select>
+            {errors.sex && <p className="text-xs text-destructive mt-1">{errors.sex}</p>}
+          </div>
+
+          <div>
+            <Label htmlFor="uf">Estado (UF)</Label>
+            <select
+              id="uf"
+              value={uf}
+              onChange={(e) => setUf(e.target.value)}
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <option value="">Selecione</option>
+              {UF_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
+            </select>
+            {errors.uf && <p className="text-xs text-destructive mt-1">{errors.uf}</p>}
+          </div>
+
+          <div>
+            <Label htmlFor="birthDate">Data de nascimento</Label>
+            <Input
+              id="birthDate"
+              type="date"
+              value={birthDate}
+              onChange={(e) => setBirthDate(e.target.value)}
+            />
+            {errors.birthDate && <p className="text-xs text-destructive mt-1">{errors.birthDate}</p>}
           </div>
 
           <div>

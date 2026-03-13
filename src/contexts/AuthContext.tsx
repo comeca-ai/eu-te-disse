@@ -8,6 +8,9 @@ interface Profile {
   full_name: string;
   cpf: string;
   status: 'pending' | 'approved' | 'rejected';
+  sex?: string;
+  uf?: string;
+  birth_date?: string;
 }
 
 interface AuthContextType {
