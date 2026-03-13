@@ -37,7 +37,7 @@ const Index = () => {
       <header className="sticky top-0 z-40 glass border-b border-border/50">
         <div className="flex items-center justify-between px-4 py-3 max-w-5xl mx-auto">
           <div className="flex items-center gap-2">
-            <img src={logoEuTeDisse} alt="Eu te disse" className="h-8" />
+            <img src={logoEuTeDisse} alt="Eu te disse" className="h-12" />
           </div>
           <div className="flex items-center gap-2">
             <StreakWidget streak={userProfile.streak} compact />
