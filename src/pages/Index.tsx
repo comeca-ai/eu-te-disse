@@ -27,10 +27,8 @@ const Index = () => {
       <header className="sticky top-0 z-40 glass border-b border-border/50">
         <div className="flex items-center justify-between px-4 py-3 max-w-5xl mx-auto">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
-              <Zap size={16} className="text-primary-foreground" />
-            </div>
-            <span className="font-heading font-bold text-lg text-foreground">eu te <span className="text-gradient-primary">disse</span></span>
+            <img src={logoEuTeDisse} alt="Eu te disse" className="h-8" />
+          </div>
           </div>
           <div className="flex items-center gap-2">
             <StreakWidget streak={userProfile.streak} compact />
