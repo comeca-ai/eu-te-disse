@@ -13,7 +13,7 @@ const Ranking = () => {
     <div className="min-h-screen">
       <header className="sticky top-0 z-40 glass border-b border-border/50">
         <div className="flex items-center justify-between px-4 py-3 max-w-3xl mx-auto">
-          <h1 className="font-heading font-bold text-lg text-foreground">🏆 Ranking</h1>
+          <h1 className="font-heading font-bold text-lg text-foreground">🏆 Quem tá mandando</h1>
           <div className="flex gap-1 bg-surface rounded-lg p-0.5">
             <button
               onClick={() => setPeriod('weekly')}
@@ -75,7 +75,7 @@ const Ranking = () => {
             <span className="text-sm font-bold text-primary">#47</span>
             <div>
               <p className="text-sm font-semibold text-foreground">Sua posição</p>
-              <p className="text-xs text-muted-foreground">67.3% de precisão</p>
+              <p className="text-xs text-muted-foreground">67.3% de acerto</p>
             </div>
           </div>
           <Button variant="market" size="sm">Subir no ranking</Button>

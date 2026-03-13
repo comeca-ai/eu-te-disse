@@ -16,7 +16,7 @@ const MarketDetail = () => {
   if (!market) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <p className="text-muted-foreground">Mercado não encontrado</p>
+        <p className="text-muted-foreground">Palpite não encontrado</p>
       </div>
     );
   }
@@ -26,9 +26,9 @@ const MarketDetail = () => {
   const relatedMarkets = markets.filter(m => m.category === market.category && m.id !== market.id).slice(0, 3);
 
   const comments = [
-    { user: 'Marina S.', text: 'Difícil prever, mas os dados recentes apontam pra cima!', time: '2h', likes: 12 },
-    { user: 'Ricardo M.', text: 'Concordo com a maioria aqui, chance real.', time: '5h', likes: 8 },
-    { user: 'Camila F.', text: 'Mudei minha posição depois de ver os últimos números.', time: '8h', likes: 15 },
+    { user: 'Marina S.', text: 'Difícil prever, mas os dados recentes apontam pra cima! Eu te disse que ia subir.', time: '2h', likes: 12 },
+    { user: 'Ricardo M.', text: 'A galera tá certeira nessa. Tô dentro também.', time: '5h', likes: 8 },
+    { user: 'Camila F.', text: 'Mudei meu palpite depois de ver os últimos números. Vamos ver!', time: '8h', likes: 15 },
   ];
 
   return (
@@ -67,7 +67,7 @@ const MarketDetail = () => {
               {isPositive ? <TrendingUp size={16} /> : <TrendingDown size={16} />}
               {isPositive ? '+' : ''}{market.change24h}% (24h)
             </div>
-            <p className="text-xs text-muted-foreground mt-0.5">probabilidade atual</p>
+            <p className="text-xs text-muted-foreground mt-0.5">o que a galera tá achando</p>
           </div>
         </div>
 
@@ -91,7 +91,7 @@ const MarketDetail = () => {
           <div className="rounded-xl bg-card border border-border p-3 text-center">
             <MessageCircle size={16} className="mx-auto mb-1 text-muted-foreground" />
             <p className="text-sm font-bold text-foreground">{market.comments}</p>
-            <p className="text-[10px] text-muted-foreground">Comentários</p>
+            <p className="text-[10px] text-muted-foreground">Discussões</p>
           </div>
           <div className="rounded-xl bg-card border border-border p-3 text-center">
             <Clock size={16} className="mx-auto mb-1 text-muted-foreground" />
@@ -102,34 +102,34 @@ const MarketDetail = () => {
 
         {/* Chart */}
         <div className="rounded-xl bg-card border border-border p-4 mb-6">
-          <h3 className="text-sm font-semibold text-foreground mb-3">Histórico de probabilidade</h3>
+          <h3 className="text-sm font-semibold text-foreground mb-3">Como o palpite evoluiu</h3>
           <ResponsiveContainer width="100%" height={180}>
             <AreaChart data={chartData}>
               <defs>
                 <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="hsl(155, 75%, 42%)" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="hsl(155, 75%, 42%)" stopOpacity={0} />
+                  <stop offset="5%" stopColor="hsl(15, 90%, 55%)" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="hsl(15, 90%, 55%)" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <XAxis dataKey="name" tick={{ fontSize: 10, fill: 'hsl(220, 10%, 55%)' }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fontSize: 10, fill: 'hsl(220, 10%, 55%)' }} axisLine={false} tickLine={false} domain={['auto', 'auto']} />
+              <XAxis dataKey="name" tick={{ fontSize: 10, fill: 'hsl(230, 12%, 50%)' }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fontSize: 10, fill: 'hsl(230, 12%, 50%)' }} axisLine={false} tickLine={false} domain={['auto', 'auto']} />
               <Tooltip
                 contentStyle={{
-                  background: 'hsl(225, 20%, 10%)',
-                  border: '1px solid hsl(225, 15%, 16%)',
+                  background: 'hsl(235, 22%, 9%)',
+                  border: '1px solid hsl(235, 18%, 15%)',
                   borderRadius: '8px',
                   fontSize: '12px',
-                  color: 'hsl(210, 20%, 95%)',
+                  color: 'hsl(220, 15%, 95%)',
                 }}
               />
-              <Area type="monotone" dataKey="value" stroke="hsl(155, 75%, 42%)" fill="url(#colorValue)" strokeWidth={2} />
+              <Area type="monotone" dataKey="value" stroke="hsl(15, 90%, 55%)" fill="url(#colorValue)" strokeWidth={2} />
             </AreaChart>
           </ResponsiveContainer>
         </div>
 
         {/* Sentiment */}
         <div className="rounded-xl bg-card border border-border p-4 mb-6">
-          <h3 className="text-sm font-semibold text-foreground mb-3">🗣️ Sentimento da comunidade</h3>
+          <h3 className="text-sm font-semibold text-foreground mb-3">🗣️ O que a galera acha</h3>
           <div className="flex items-center gap-3 mb-3">
             <div className="flex-1">
               <div className="flex justify-between text-xs mb-1">
@@ -143,7 +143,7 @@ const MarketDetail = () => {
             </div>
           </div>
           <p className="text-xs text-muted-foreground">
-            <span className="font-medium text-foreground">O que está mexendo:</span> Últimas declarações e dados oficiais movimentam as probabilidades.
+            <span className="font-medium text-foreground">O que tá rolando:</span> Últimas notícias e dados movimentaram as probabilidades.
           </p>
         </div>
 
@@ -152,22 +152,22 @@ const MarketDetail = () => {
           <div className="rounded-xl bg-card border border-border p-4 mb-6">
             <div className="flex items-center gap-2 mb-2">
               <Shield size={16} className="text-primary" />
-              <h3 className="text-sm font-semibold text-foreground">Critérios de resolução</h3>
+              <h3 className="text-sm font-semibold text-foreground">Como vai ser resolvido</h3>
             </div>
             <p className="text-xs text-muted-foreground mb-2">
-              Este mercado será resolvido com base em dados oficiais publicados por <span className="text-foreground font-medium">{market.source}</span>.
+              Esse palpite vai ser resolvido com dados oficiais de <span className="text-foreground font-medium">{market.source}</span>. Sem mistério.
             </p>
             <button className="text-xs text-primary font-medium flex items-center gap-1">
-              Ver detalhes completos <ExternalLink size={12} />
+              Ver regras completas <ExternalLink size={12} />
             </button>
           </div>
         )}
 
         {/* Beginner box */}
         <div className="rounded-xl border border-accent/20 bg-accent/5 p-4 mb-6">
-          <h4 className="text-sm font-semibold text-foreground mb-1">💡 Como funciona?</h4>
+          <h4 className="text-sm font-semibold text-foreground mb-1">💡 Primeira vez?</h4>
           <p className="text-xs text-muted-foreground">
-            Você escolhe "Sim" ou "Não" pagando um valor entre 1¢ e 99¢. Se acertar, recebe R$ 1,00 por cota. O preço reflete a probabilidade estimada pela comunidade.
+            Escolha "Sim" ou "Não" pagando entre 1¢ e 99¢. Acertou? Recebe R$ 1,00 por cota. O preço mostra o que a galera tá achando.
           </p>
         </div>
 
@@ -175,7 +175,7 @@ const MarketDetail = () => {
         <div className="rounded-xl bg-card border border-border p-4 mb-6">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-semibold text-foreground">💬 Discussão ({market.comments})</h3>
-            <Button variant="glass" size="sm">Comentar</Button>
+            <Button variant="glass" size="sm">Opinar</Button>
           </div>
           <div className="space-y-3">
             {comments.map((c, i) => (
@@ -189,7 +189,7 @@ const MarketDetail = () => {
                     <span className="text-[10px] text-muted-foreground">{c.time}</span>
                   </div>
                   <p className="text-xs text-muted-foreground">{c.text}</p>
-                  <button className="text-[10px] text-muted-foreground mt-1 hover:text-foreground">❤️ {c.likes}</button>
+                  <button className="text-[10px] text-muted-foreground mt-1 hover:text-foreground">🔥 {c.likes}</button>
                 </div>
               </div>
             ))}
@@ -199,7 +199,7 @@ const MarketDetail = () => {
         {/* Related */}
         {relatedMarkets.length > 0 && (
           <section className="mb-8">
-            <h3 className="text-sm font-semibold text-foreground mb-3">Mercados relacionados</h3>
+            <h3 className="text-sm font-semibold text-foreground mb-3">Palpites parecidos</h3>
             <div className="space-y-3">
               {relatedMarkets.map(m => (
                 <MarketCard key={m.id} market={m} />

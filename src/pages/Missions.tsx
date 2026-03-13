@@ -15,7 +15,7 @@ const Missions = () => {
     <div className="min-h-screen">
       <header className="sticky top-0 z-40 glass border-b border-border/50">
         <div className="flex items-center justify-between px-4 py-3 max-w-3xl mx-auto">
-          <h1 className="font-heading font-bold text-lg text-foreground">🎯 Missões</h1>
+          <h1 className="font-heading font-bold text-lg text-foreground">🎯 Desafios</h1>
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gold/10 border border-gold/20">
             <span className="text-xs font-bold text-gold">+{totalXP} XP ganhos</span>
           </div>
@@ -31,7 +31,7 @@ const Missions = () => {
             </div>
             <div>
               <h2 className="font-heading font-bold text-foreground">Progresso do dia</h2>
-              <p className="text-sm text-muted-foreground">{completedCount}/{missions.filter(m => m.type === 'daily').length} missões diárias</p>
+              <p className="text-sm text-muted-foreground">{completedCount}/{missions.filter(m => m.type === 'daily').length} desafios diários</p>
             </div>
           </div>
           <div className="w-full h-2.5 rounded-full bg-surface overflow-hidden">
@@ -53,7 +53,7 @@ const Missions = () => {
                 tab === t ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
               )}
             >
-              {t === 'daily' ? '📅 Diárias' : t === 'weekly' ? '📆 Semanais' : '⭐ Especiais'}
+              {t === 'daily' ? '📅 Diários' : t === 'weekly' ? '📆 Semanais' : '⭐ Especiais'}
             </button>
           ))}
         </div>
@@ -66,16 +66,16 @@ const Missions = () => {
           {filtered.length === 0 && (
             <div className="text-center py-12">
               <p className="text-4xl mb-3">🎉</p>
-              <p className="text-sm text-muted-foreground">Nenhuma missão nesta categoria por enquanto!</p>
+              <p className="text-sm text-muted-foreground">Nenhum desafio nesta categoria por enquanto!</p>
             </div>
           )}
         </div>
 
         {/* Special event teaser */}
         <div className="rounded-xl border border-secondary/30 bg-secondary/5 p-5 mt-8">
-          <h3 className="font-heading font-bold text-foreground mb-1">⚽ Evento especial: Brasileirão</h3>
+          <h3 className="font-heading font-bold text-foreground mb-1">⚽ Evento: Brasileirão</h3>
           <p className="text-sm text-muted-foreground mb-3">
-            Complete 5 mercados sobre futebol e ganhe o badge exclusivo "Oráculo do Futebol" + 500 XP!
+            Complete 5 palpites sobre futebol e conquiste o badge "Oráculo do Futebol" + 500 XP!
           </p>
           <div className="flex items-center gap-2">
             <div className="flex-1 h-2 rounded-full bg-surface overflow-hidden">
