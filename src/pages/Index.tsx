@@ -167,7 +167,7 @@ const Index = () => {
             <p className="text-sm text-muted-foreground mb-3">
               Aprenda como dar seus palpites em 3 passos e ganhe 100 XP de bônus. É rapidinho.
             </p>
-            <Button variant="market" size="sm" onClick={() => navigate('/como-funciona')}>
+            <Button variant="market" size="sm" onClick={() => { if (!requireAuth()) navigate('/como-funciona'); }}>
               Bora lá
             </Button>
           </div>
