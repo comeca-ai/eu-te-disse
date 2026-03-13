@@ -16,29 +16,38 @@ export type Database = {
     Tables: {
       profiles: {
         Row: {
+          birth_date: string | null
           cpf: string
           created_at: string
           full_name: string
           id: string
+          sex: string | null
           status: string
+          uf: string | null
           updated_at: string
           user_id: string
         }
         Insert: {
+          birth_date?: string | null
           cpf: string
           created_at?: string
           full_name: string
           id?: string
+          sex?: string | null
           status?: string
+          uf?: string | null
           updated_at?: string
           user_id: string
         }
         Update: {
+          birth_date?: string | null
           cpf?: string
           created_at?: string
           full_name?: string
           id?: string
+          sex?: string | null
           status?: string
+          uf?: string | null
           updated_at?: string
           user_id?: string
         }
