@@ -5,6 +5,7 @@ import MiniSparkline from './MiniSparkline';
 import type { Market } from '@/data/mockData';
 import { formatVolume } from '@/data/mockData';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface MarketCardProps {
   market: Market;
@@ -13,11 +14,20 @@ interface MarketCardProps {
 
 const MarketCard: React.FC<MarketCardProps> = ({ market, compact }) => {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const isPositive = market.change24h >= 0;
+
+  const handleClick = () => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+    navigate(`/mercado/${market.id}`);
+  };
 
   return (
     <button
-      onClick={() => navigate(`/mercado/${market.id}`)}
+      onClick={handleClick}
       className={cn(
         "w-full text-left rounded-xl border border-border bg-card p-4 transition-all duration-200 hover:bg-card-hover hover:border-primary/20 group",
         compact ? "min-w-[280px]" : ""

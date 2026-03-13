@@ -8,11 +8,21 @@ import CategoryBadge from '@/components/market/CategoryBadge';
 import StreakWidget from '@/components/gamification/StreakWidget';
 import XPWidget from '@/components/gamification/XPWidget';
 import { markets, categories, userProfile } from '@/data/mockData';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchOpen, setSearchOpen] = useState(false);
   const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const requireAuth = () => {
+    if (!user) {
+      navigate('/login');
+      return true;
+    }
+    return false;
+  };
 
   const filteredMarkets = activeCategory === 'all'
     ? markets
@@ -58,10 +68,10 @@ const Index = () => {
               Dê seus palpites sobre futebol, economia, BBB, política e tudo que move o Brasil. Acertou? Então fala: <span className="text-foreground font-medium">eu te disse.</span>
             </p>
             <div className="flex gap-3">
-              <Button variant="market" size="lg" onClick={() => navigate('/como-funciona')}>
+              <Button variant="market" size="lg" onClick={() => { if (!requireAuth()) navigate('/como-funciona'); }}>
                 Como funciona?
               </Button>
-              <Button variant="glass" size="lg">
+              <Button variant="glass" size="lg" onClick={() => requireAuth()}>
                 Bora palpitar
               </Button>
             </div>
@@ -157,7 +167,7 @@ const Index = () => {
             <p className="text-sm text-muted-foreground mb-3">
               Aprenda como dar seus palpites em 3 passos e ganhe 100 XP de bônus. É rapidinho.
             </p>
-            <Button variant="market" size="sm" onClick={() => navigate('/como-funciona')}>
+            <Button variant="market" size="sm" onClick={() => { if (!requireAuth()) navigate('/como-funciona'); }}>
               Bora lá
             </Button>
           </div>

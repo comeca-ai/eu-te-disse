@@ -69,13 +69,16 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            {/* Public: show Index as landing but interaction blocked */}
+            {/* Public: Index visible to all */}
+            <Route path="/" element={<AppLayout />}>
+              <Route index element={<Index />} />
+            </Route>
+
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Signup />} />
 
             {/* Protected routes */}
             <Route element={<ProtectedRoutes />}>
-              <Route path="/" element={<Index />} />
               <Route path="/mercado/:id" element={<MarketDetail />} />
               <Route path="/ranking" element={<Ranking />} />
               <Route path="/missoes" element={<Missions />} />
