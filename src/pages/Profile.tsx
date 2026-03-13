@@ -67,7 +67,7 @@ const Profile = () => {
               <Flame size={18} className="text-warning" />
             </div>
             <div>
-              <p className="text-lg font-bold text-foreground">{userProfile.streak} dias</p>
+              <p className="text-lg font-bold text-foreground">0 dias</p>
               <p className="text-xs text-muted-foreground">Sequência</p>
             </div>
           </div>
