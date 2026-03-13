@@ -14,7 +14,16 @@ interface MarketCardProps {
 
 const MarketCard: React.FC<MarketCardProps> = ({ market, compact }) => {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const isPositive = market.change24h >= 0;
+
+  const handleClick = () => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+    navigate(`/mercado/${market.id}`);
+  };
 
   return (
     <button
