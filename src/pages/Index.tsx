@@ -71,8 +71,8 @@ const Index = () => {
               <Button variant="market" size="lg" onClick={() => { if (!requireAuth()) navigate('/como-funciona'); }}>
                 Como funciona?
               </Button>
-              <Button variant="glass" size="lg" onClick={() => requireAuth()}>
-                Bora palpitar
+              <Button variant="gold" size="lg" onClick={() => navigate('/planos')}>
+                Ver planos
               </Button>
             </div>
           </div>
