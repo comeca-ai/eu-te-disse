@@ -14,9 +14,9 @@ import Profile from "./pages/Profile";
 import HowItWorks from "./pages/HowItWorks";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import PendingApproval from "./pages/PendingApproval";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import Planos from "./pages/Planos";
 
 const queryClient = new QueryClient();
 
@@ -43,7 +43,7 @@ const ProtectedRoutes = () => {
 };
 
 const AuthRoutes = () => {
-  const { user, profile, loading } = useAuth();
+  const { user, loading } = useAuth();
 
   if (loading) {
     return (
@@ -53,11 +53,11 @@ const AuthRoutes = () => {
     );
   }
 
-  if (user && profile?.status === 'approved') {
+  if (user) {
     return <Navigate to="/" replace />;
   }
 
-  return null; // render the route's element
+  return null;
 };
 
 const App = () => (
@@ -76,6 +76,7 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Signup />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/planos" element={<Planos />} />
 
             {/* Protected routes */}
             <Route element={<ProtectedRoutes />}>

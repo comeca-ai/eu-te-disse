@@ -95,7 +95,7 @@ const Signup = () => {
       return;
     }
 
-    toast.success('Cadastro realizado! Aguarde aprovação para acessar a plataforma.');
+    toast.success('Cadastro realizado! Verifique seu email para confirmar a conta.');
     navigate('/login');
   };
 
