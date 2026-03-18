@@ -60,7 +60,7 @@ const Profile = () => {
             </div>
             <div>
               <p className="text-lg font-bold text-foreground">0</p>
-              <p className="text-xs text-muted-foreground">Palpites</p>
+              <p className="text-xs text-muted-foreground">Previsões</p>
             </div>
           </div>
           <div className="rounded-xl bg-card border border-border p-4 flex items-center gap-3">

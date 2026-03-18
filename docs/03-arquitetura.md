@@ -16,7 +16,7 @@ src/
 │   │   └── BottomNav.tsx     # Navegação inferior mobile
 │   ├── market/
 │   │   ├── CategoryBadge.tsx # Badge de categoria
-│   │   ├── MarketCard.tsx    # Card de mercado/palpite
+│   │   ├── MarketCard.tsx    # Card de mercado/previsão
 │   │   └── MiniSparkline.tsx # Gráfico sparkline mini
 │   └── ui/                  # shadcn/ui components (~50+)
 ├── contexts/
@@ -41,7 +41,7 @@ src/
 │   ├── MarketDetail.tsx      # Detalhe de mercado individual
 │   ├── Missions.tsx          # Desafios/Missões com timer
 │   ├── Ranking.tsx           # Ranking de usuários
-│   ├── Portfolio.tsx         # Carteira de palpites
+│   ├── Portfolio.tsx         # Carteira de previsões
 │   ├── Profile.tsx           # Perfil do usuário
 │   ├── HowItWorks.tsx        # Como funciona
 │   ├── PendingApproval.tsx   # Aprovação pendente
@@ -80,7 +80,7 @@ Rotas protegidas (requer autenticação):
 | 1 | Home | Início | `/` |
 | 2 | Trophy | Ranking | `/ranking` |
 | 3 | Target | Desafios | `/missoes` |
-| 4 | Compass | Palpites | `/carteira` |
+| 4 | Compass | Previsões | `/carteira` |
 | 5 | User | Perfil | `/perfil` |
 
 ## Providers (App.tsx)

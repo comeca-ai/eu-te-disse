@@ -65,7 +65,7 @@ const Index = () => {
               <span className="text-gradient-primary">Agora prove.</span>
             </h1>
             <p className="text-muted-foreground text-sm md:text-base mb-6 max-w-md">
-              Dê seus palpites sobre futebol, economia, BBB, política e tudo que move o Brasil. Acertou? Então fala: <span className="text-foreground font-medium">eu te disse.</span>
+              Faça suas previsões sobre futebol, economia, BBB, política e tudo que move o Brasil. Acertou? Então fala: <span className="text-foreground font-medium">eu te disse.</span>
             </p>
             <div className="flex gap-3">
               <Button variant="market" size="lg" onClick={() => { if (!requireAuth()) navigate('/como-funciona'); }}>
@@ -145,10 +145,10 @@ const Index = () => {
           </section>
         )}
 
-        {/* Palpites do dia */}
+        {/* Mercados do dia */}
         <section className="mb-6">
           <div className="flex items-center justify-between px-4 mb-3">
-            <h2 className="text-lg font-heading font-bold text-foreground">📊 Palpites do dia</h2>
+            <h2 className="text-lg font-heading font-bold text-foreground">📊 Mercados do dia</h2>
             <button className="text-xs text-primary font-medium flex items-center gap-0.5">
               Ver todos <ChevronRight size={14} />
             </button>
@@ -165,7 +165,7 @@ const Index = () => {
           <div className="rounded-xl border border-primary/20 bg-primary/5 p-5">
             <h3 className="font-heading font-bold text-foreground mb-1">👋 Primeira vez aqui?</h3>
             <p className="text-sm text-muted-foreground mb-3">
-              Aprenda como dar seus palpites em 3 passos e ganhe 100 XP de bônus. É rapidinho.
+              Aprenda como fazer suas previsões em 3 passos e ganhe 100 XP de bônus. É rapidinho.
             </p>
             <Button variant="market" size="sm" onClick={() => { if (!requireAuth()) navigate('/como-funciona'); }}>
               Bora lá

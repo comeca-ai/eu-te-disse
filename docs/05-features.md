@@ -7,7 +7,7 @@
 - Pilares de confiança (sabedoria da galera, transparência, social, recompensas)
 - Seção "Tá pegando fogo" (mercados em alta)
 - Seção "Fecha hoje" (mercados resolvendo hoje)
-- Seção "Palpites do dia" com filtro por categoria
+- Seção "Previsões do dia" com filtro por categoria
 - Seção "Primeira vez aqui?" com onboarding
 - Widgets de streak e XP no header
 
@@ -27,7 +27,7 @@
 
 ### 4. Detalhe do Mercado
 - Gráfico de probabilidade expandido (AreaChart)
-- Botões Sim/Não para palpitar
+- Botões Sim/Não para prever
 - Seção de comentários
 - Mercados relacionados
 - Ações: compartilhar, salvar
@@ -96,7 +96,7 @@
 
 ### Fase 2
 - [ ] Mercados reais no banco de dados (migrar de mockData)
-- [ ] Sistema de apostas/palpites com saldo virtual
+- [ ] Sistema de apostas/previsões com saldo virtual
 - [ ] Resolução automática de mercados
 - [ ] Notificações push
 - [ ] Compartilhamento social

@@ -15,13 +15,13 @@ A gamificação é o coração do engajamento da plataforma. O sistema foi proje
 
 | Ação | XP |
 |------|-----|
-| Primeiro palpite do dia | 50 |
+| Primeiro previsão do dia | 50 |
 | Comentar em mercado | 20 |
 | Explorar categorias | 30 |
 | Missão diária completa | 50-100 |
 | Missão semanal completa | 150-200 |
 | Missão especial completa | 300-500 |
-| Acertar palpite | Variável |
+| Acertar previsão | Variável |
 
 ### 2. Streak (Sequência Diária)
 
@@ -37,9 +37,9 @@ Três categorias com características distintas:
 
 | Tipo | Duração | XP Médio | Exemplo |
 |------|---------|----------|---------|
-| **Diária** | 24h | 20-100 | "Dê 1 palpite hoje" |
-| **Semanal** | 7 dias | 150-200 | "Palpite em 5 categorias" |
-| **Especial** | Variável | 300-500 | "5 palpites de futebol" |
+| **Diária** | 24h | 20-100 | "Dê 1 previsão hoje" |
+| **Semanal** | 7 dias | 150-200 | "Previsão em 5 categorias" |
+| **Especial** | Variável | 300-500 | "5 previsões de futebol" |
 
 **Funcionalidades:**
 - Timer visual com countdown (horas:minutos)
@@ -55,13 +55,13 @@ Três categorias com características distintas:
 | Badge | Categoria | Condição |
 |-------|-----------|----------|
 | ⚽ Oráculo do Futebol | Futebol | 10 acertos |
-| 🏛️ Radar Político | Política | 20 palpites |
+| 🏛️ Radar Político | Política | 20 previsões |
 | 📺 Mestre do BBB | BBB | Acertar vencedor |
 | 📈 Macro Guru | Economia | 5 acertos seguidos |
 | 🌦️ Meteorologista | Clima | 10 acertos |
-| 🎬 Crítico de Cinema | Cultura | 15 palpites |
+| 🎬 Crítico de Cinema | Cultura | 15 previsões |
 | 🔥 On Fire | Geral | 30 dias de streak |
-| 🎯 Primeiro Palpite | Geral | Primeiro palpite |
+| 🎯 Primeiro Previsão | Geral | Primeiro previsão |
 | 🏆 Top 10 Semanal | Geral | Ranking top 10 |
 | 💻 Tech Visionary | Tech | 5 acertos |
 | 🏅 Atleta Digital | Esportes | Todas as categorias |
@@ -84,7 +84,7 @@ Vê streak atual → motivação para manter
     ↓
 Vê missões com timer → urgência para completar
     ↓
-Dá palpites → ganha XP + progresso em missões
+Dá previsões → ganha XP + progresso em missões
     ↓
 Sobe de nível / ganha badge → dopamina
     ↓

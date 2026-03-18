@@ -16,7 +16,7 @@ const Portfolio = () => {
     <div className="min-h-screen">
       <header className="sticky top-0 z-40 glass border-b border-border/50">
         <div className="px-4 py-3 max-w-3xl mx-auto">
-          <h1 className="font-heading font-bold text-lg text-foreground">💼 Meus palpites</h1>
+          <h1 className="font-heading font-bold text-lg text-foreground">💼 Minhas previsões</h1>
         </div>
       </header>
 
@@ -40,7 +40,7 @@ const Portfolio = () => {
           <div className="grid grid-cols-3 gap-3">
             <div className="rounded-lg bg-background/40 p-3 text-center">
               <p className="text-lg font-bold text-foreground">{positions.length}</p>
-              <p className="text-[10px] text-muted-foreground">Palpites ativos</p>
+              <p className="text-[10px] text-muted-foreground">Previsões ativas</p>
             </div>
             <div className="rounded-lg bg-background/40 p-3 text-center">
               <p className="text-lg font-bold text-foreground">{userProfile.accuracy}%</p>
@@ -48,13 +48,13 @@ const Portfolio = () => {
             </div>
             <div className="rounded-lg bg-background/40 p-3 text-center">
               <p className="text-lg font-bold text-foreground">{userProfile.totalMarkets}</p>
-              <p className="text-[10px] text-muted-foreground">Total palpites</p>
+              <p className="text-[10px] text-muted-foreground">Total previsões</p>
             </div>
           </div>
         </div>
 
         {/* Positions */}
-        <h2 className="text-sm font-heading font-bold text-foreground mb-3">Palpites ativos</h2>
+        <h2 className="text-sm font-heading font-bold text-foreground mb-3">Previsões ativas</h2>
         <div className="space-y-3 mb-8">
           {positions.map((pos, i) => {
             const pnl = pos.currentValue - pos.invested;
@@ -90,7 +90,7 @@ const Portfolio = () => {
         </div>
 
         <Button variant="market" size="lg" className="w-full" onClick={() => navigate('/')}>
-          Bora palpitar mais
+          Ver mais mercados
         </Button>
       </main>
     </div>

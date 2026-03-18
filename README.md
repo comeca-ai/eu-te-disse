@@ -1,6 +1,6 @@
-# Brasil Palpite Club — "Eu te disse"
+# Eu Te Disse
 
-Plataforma de mercados de palpites onde usuários fazem previsões sobre futebol, política, economia, entretenimento e mais. Sistema de gamificação com XP, missões, ranking e badges.
+Plataforma de mercados de previsão onde usuários fazem previsões sobre futebol, política, economia, entretenimento e mais. Sistema de gamificação com XP, missões, ranking e badges.
 
 ## Stack
 
@@ -15,7 +15,7 @@ Plataforma de mercados de palpites onde usuários fazem previsões sobre futebol
 
 ```sh
 git clone <URL_DO_REPO>
-cd brasil-palpite-club
+cd eu-te-disse
 npm install
 npm run dev        # Servidor de desenvolvimento na porta 8080
 ```
@@ -162,7 +162,7 @@ src/
 
 ### Para usuários
 - **Mercados**: Navegar por categorias (⚽ Futebol, 🏛️ Política, 📈 Economia, 📺 BBB/TV, 💻 Tech, 🌦️ Clima, 🎬 Cultura Pop, 🏅 Esportes)
-- **Palpites**: Comprar cotas "Sim" ou "Não" na probabilidade atual
+- **Previsões**: Comprar cotas "Sim" ou "Não" na probabilidade atual
 - **Carteira**: Acompanhar posições, lucro/prejuízo, acurácia
 - **Ranking**: Competir no leaderboard global semanal/mensal
 - **Missões**: Completar desafios diários/semanais para ganhar XP
@@ -172,12 +172,12 @@ src/
 ### Para admins
 - Gerenciar usuários e roles
 - Criar/editar/expirar missões
-- Criar/editar/resolver mercados de palpites
+- Criar/editar/resolver mercados de previsão
 
 ### Planos de assinatura
 | Plano | Preço | Destaques |
 |-------|-------|-----------|
-| **Free** | R$ 0 | 5 palpites/dia, mercados públicos, missões básicas |
+| **Free** | R$ 0 | 5 previsões/dia, mercados públicos, missões básicas |
 | **Pro** | R$ 19,90/mês | Ilimitado, mercados exclusivos, XP dobrado |
 | **VIP** | R$ 49,90/mês | Tudo do Pro + mercados customizados, suporte prioritário, grupo Telegram |
 

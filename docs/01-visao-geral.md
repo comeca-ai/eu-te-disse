@@ -2,13 +2,13 @@
 
 ## O que é
 
-**Eu Te Disse** é uma plataforma brasileira de mercados de previsão gamificada. Usuários dão palpites sobre eventos reais — futebol, economia, BBB, política, clima, tecnologia, cultura pop e esportes — e são recompensados com XP, badges e posições no ranking quando acertam.
+**Eu Te Disse** é uma plataforma brasileira de mercados de previsão gamificada. Usuários dão previsões sobre eventos reais — futebol, economia, BBB, política, clima, tecnologia, cultura pop e esportes — e são recompensados com XP, badges e posições no ranking quando acertam.
 
 A proposta central é: **"Você já sabia. Agora prove."**
 
 ## Proposta de Valor
 
-- **Para o usuário casual:** diversão + engajamento ao palpitar sobre temas do dia a dia brasileiro
+- **Para o usuário casual:** diversão + engajamento ao prever sobre temas do dia a dia brasileiro
 - **Para o "entendido":** validação pública das suas previsões com métricas de acurácia
 - **Para a comunidade:** sabedoria coletiva agregada em probabilidades dinâmicas
 

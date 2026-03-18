@@ -2,9 +2,9 @@
 
 ## Posicionamento
 
-> "A rede social dos palpiteiros do Brasil"
+> "A rede social dos previsores do Brasil"
 
-**Eu Te Disse** não é uma casa de apostas. É uma plataforma de entretenimento gamificada onde palpitar é grátis e o engajamento vem da diversão, competição social e validação de conhecimento.
+**Eu Te Disse** não é uma casa de apostas. É uma plataforma de entretenimento gamificada onde prever é grátis e o engajamento vem da diversão, competição social e validação de conhecimento.
 
 ## Mercado-Alvo
 
@@ -52,7 +52,7 @@
 | **WhatsApp** | 🔴 Alta | Zero | Compartilhamento de mercados e resultados |
 | **Instagram Reels/TikTok** | 🔴 Alta | Médio | "Eu avisei" moments, compilações de acertos |
 | **YouTube** | 🟡 Média | Médio | Parcerias com creators de futebol/economia |
-| **Twitch** | 🟡 Média | Baixo | Lives de palpites durante jogos |
+| **Twitch** | 🟡 Média | Baixo | Lives de previsões durante jogos |
 | **Reddit/Discord** | 🟢 Suporte | Zero | Comunidades nichadas |
 | **SEO** | 🟢 Longo prazo | Baixo | "previsão brasileirão", "dólar vai subir" |
 
@@ -61,7 +61,7 @@
 ### Conteúdo Gerado pela Plataforma
 - "🔥 Mercado do dia" — diário no Twitter/Instagram
 - "📊 Sabedoria da galera" — visualização das probabilidades coletivas
-- "🏆 Ranking semanal" — top palpiteiros
+- "🏆 Ranking semanal" — top previsores
 - "✅ Eu te disse!" — quando mercados resolvem, destacar quem acertou
 
 ### Conteúdo Gerado pelo Usuário (UGC)
@@ -75,7 +75,7 @@
 
 | Recurso | Free | Premium |
 |---------|------|---------|
-| Palpites ilimitados | ✅ | ✅ |
+| Previsões ilimitados | ✅ | ✅ |
 | Missões e XP | ✅ | ✅ |
 | Ranking básico | ✅ | ✅ |
 | Analytics avançado | ❌ | ✅ |
@@ -99,7 +99,7 @@
 |---------|------------|------------|
 | MAU (Monthly Active Users) | 100K | 500K |
 | DAU/MAU ratio | > 30% | > 40% |
-| Palpites/dia/usuário | 3+ | 5+ |
+| Previsões/dia/usuário | 3+ | 5+ |
 | Streak médio (dias) | 5 | 10 |
 | Retenção D7 | 40% | 50% |
 | Retenção D30 | 20% | 30% |

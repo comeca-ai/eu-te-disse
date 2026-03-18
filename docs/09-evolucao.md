@@ -38,7 +38,7 @@
 ### Fase 2 — Mercados Reais (Q2 2026)
 - [ ] Migrar mercados de mockData para banco de dados
 - [ ] CRUD de mercados pelo admin
-- [ ] Sistema de palpites com saldo virtual
+- [ ] Sistema de previsões com saldo virtual
 - [ ] Resolução de mercados (manual e automática)
 - [ ] Cálculo de acurácia real
 - [ ] Notificações (in-app e push)

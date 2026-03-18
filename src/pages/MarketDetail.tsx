@@ -16,7 +16,7 @@ const MarketDetail = () => {
   if (!market) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <p className="text-muted-foreground">Palpite não encontrado</p>
+        <p className="text-muted-foreground">Mercado não encontrado</p>
       </div>
     );
   }
@@ -28,7 +28,7 @@ const MarketDetail = () => {
   const comments = [
     { user: 'Marina S.', text: 'Difícil prever, mas os dados recentes apontam pra cima! Eu te disse que ia subir.', time: '2h', likes: 12 },
     { user: 'Ricardo M.', text: 'A galera tá certeira nessa. Tô dentro também.', time: '5h', likes: 8 },
-    { user: 'Camila F.', text: 'Mudei meu palpite depois de ver os últimos números. Vamos ver!', time: '8h', likes: 15 },
+    { user: 'Camila F.', text: 'Mudei minha previsão depois de ver os últimos números. Vamos ver!', time: '8h', likes: 15 },
   ];
 
   return (
@@ -102,7 +102,7 @@ const MarketDetail = () => {
 
         {/* Chart */}
         <div className="rounded-xl bg-card border border-border p-4 mb-6">
-          <h3 className="text-sm font-semibold text-foreground mb-3">Como o palpite evoluiu</h3>
+          <h3 className="text-sm font-semibold text-foreground mb-3">Como o mercado evoluiu</h3>
           <ResponsiveContainer width="100%" height={180}>
             <AreaChart data={chartData}>
               <defs>
@@ -155,7 +155,7 @@ const MarketDetail = () => {
               <h3 className="text-sm font-semibold text-foreground">Como vai ser resolvido</h3>
             </div>
             <p className="text-xs text-muted-foreground mb-2">
-              Esse palpite vai ser resolvido com dados oficiais de <span className="text-foreground font-medium">{market.source}</span>. Sem mistério.
+              Esse mercado vai ser resolvido com dados oficiais de <span className="text-foreground font-medium">{market.source}</span>. Sem mistério.
             </p>
             <button className="text-xs text-primary font-medium flex items-center gap-1">
               Ver regras completas <ExternalLink size={12} />
@@ -199,7 +199,7 @@ const MarketDetail = () => {
         {/* Related */}
         {relatedMarkets.length > 0 && (
           <section className="mb-8">
-            <h3 className="text-sm font-semibold text-foreground mb-3">Palpites parecidos</h3>
+            <h3 className="text-sm font-semibold text-foreground mb-3">Mercados parecidos</h3>
             <div className="space-y-3">
               {relatedMarkets.map(m => (
                 <MarketCard key={m.id} market={m} />

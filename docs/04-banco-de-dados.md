@@ -92,7 +92,7 @@ Templates de missões/desafios criados pelo admin.
 | title | text | Não | - | Título da missão |
 | description | text | Não | - | Descrição |
 | xp | integer | Não | 50 | XP concedido ao completar |
-| total | integer | Não | 1 | Meta numérica (ex: 5 palpites) |
+| total | integer | Não | 1 | Meta numérica (ex: 5 previsões) |
 | type | text | Não | 'daily' | daily / weekly / special |
 | icon | text | Não | '🎯' | Emoji ícone |
 | status | text | Não | 'active' | active / expired |

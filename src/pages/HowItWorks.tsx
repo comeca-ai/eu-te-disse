@@ -7,23 +7,23 @@ const HowItWorks = () => {
   const navigate = useNavigate();
 
   const steps = [
-    { num: '01', title: 'Escolha um palpite', desc: 'Explore centenas de perguntas sobre futebol, economia, BBB, política e mais. Escolha algo que você manja.', icon: '🔍' },
+    { num: '01', title: 'Escolha um mercado', desc: 'Explore centenas de perguntas sobre futebol, economia, BBB, política e mais. Escolha algo que você manja.', icon: '🔍' },
     { num: '02', title: 'Mete a opinião', desc: 'Compre cotas de "Sim" ou "Não". O preço mostra o que a galera tá achando. Quanto menor o preço, maior o retorno se você acertar.', icon: '🎯' },
-    { num: '03', title: 'Acertou? Eu te disse!', desc: 'Se seu palpite tiver certo, você recebe R$ 1,00 por cota. Ganha XP, conquistas e sobe no ranking. Aí é só falar: eu te disse.', icon: '🏆' },
+    { num: '03', title: 'Acertou? Eu te disse!', desc: 'Se sua previsão tiver certa, você recebe R$ 1,00 por cota. Ganha XP, conquistas e sobe no ranking. Aí é só falar: eu te disse.', icon: '🏆' },
   ];
 
   const pillars = [
     { icon: <Lightbulb size={24} />, title: 'Sabedoria da galera', desc: 'Os preços refletem o que milhares de pessoas pensam. A galera junta acerta mais que qualquer especialista sozinho.' },
-    { icon: <Shield size={24} />, title: 'Tudo às claras', desc: 'Cada palpite tem regras claras, fontes públicas e histórico completo. Zero surpresa na hora da resolução.' },
+    { icon: <Shield size={24} />, title: 'Tudo às claras', desc: 'Cada mercado tem regras claras, fontes públicas e histórico completo. Zero surpresa na hora da resolução.' },
     { icon: <Users size={24} />, title: 'Desafie seus amigos', desc: 'Discuta, compartilhe análises, desafie a galera e participe de ligas. Mais divertido quando é junto.' },
     { icon: <Award size={24} />, title: 'Mandou bem? Leva prêmio', desc: 'Ganhe XP, conquistas exclusivas e destaque no ranking. Quanto mais você acerta, mais recompensas.' },
   ];
 
   const faqs = [
     { q: 'Preciso pagar pra participar?', a: 'O protótipo é demonstrativo. Numa versão real, você usaria saldo virtual ou real pra comprar cotas.' },
-    { q: 'Como os palpites são resolvidos?', a: 'Cada mercado define critérios claros e fontes oficiais. Quando o prazo expira, a resolução é baseada nos fatos.' },
+    { q: 'Como os mercados são resolvidos?', a: 'Cada mercado define critérios claros e fontes oficiais. Quando o prazo expira, a resolução é baseada nos fatos.' },
     { q: 'É seguro?', a: 'Transparência total. Todas as regras são públicas e o histórico é verificável por qualquer pessoa.' },
-    { q: 'Posso palpitar em qualquer tema?', a: 'Sim! Tem futebol, economia, BBB, clima, tecnologia e muito mais. Escolhe o que você entende.' },
+    { q: 'Posso prever qualquer tema?', a: 'Sim! Tem futebol, economia, BBB, clima, tecnologia e muito mais. Escolhe o que você entende.' },
   ];
 
   return (
@@ -41,10 +41,10 @@ const HowItWorks = () => {
         {/* Hero */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
-            Palpitou, acertou,<br /><span className="text-gradient-primary">eu te disse.</span>
+            Previu, acertou,<br /><span className="text-gradient-primary">eu te disse.</span>
           </h2>
           <p className="text-muted-foreground max-w-md mx-auto">
-            Entenda como funciona e por que milhares de pessoas confiam nos palpites coletivos.
+            Entenda como funciona e por que milhares de pessoas confiam nas previsões coletivas.
           </p>
         </div>
 
@@ -95,7 +95,7 @@ const HowItWorks = () => {
         {/* CTA */}
         <div className="text-center">
           <Button variant="market" size="xl" onClick={() => navigate('/')}>
-            Bora palpitar agora
+            Ver mercados agora
           </Button>
         </div>
       </main>

@@ -10,13 +10,13 @@ const plans = [
     name: 'Grátis',
     price: 'R$ 0',
     period: '/mês',
-    description: 'Comece a palpitar agora mesmo',
+    description: 'Comece a prever agora mesmo',
     icon: <Zap size={24} />,
     color: 'text-muted-foreground',
     borderColor: 'border-border',
     bgCard: 'bg-card',
     features: [
-      'Até 5 palpites por dia',
+      'Até 5 previsões por dia',
       'Acesso a mercados públicos',
       'Ranking geral',
       'Missões diárias básicas',
@@ -31,14 +31,14 @@ const plans = [
     name: 'Pro',
     price: 'R$ 19,90',
     period: '/mês',
-    description: 'Para quem leva palpite a sério',
+    description: 'Para quem leva previsão a sério',
     icon: <Crown size={24} />,
     color: 'text-primary',
     borderColor: 'border-primary/50',
     bgCard: 'bg-primary/5',
     popular: true,
     features: [
-      'Palpites ilimitados',
+      'Previsões ilimitadas',
       'Mercados exclusivos antecipados',
       'Análises detalhadas com gráficos',
       'Missões premium com XP dobrado',
@@ -68,7 +68,7 @@ const plans = [
       'Badge VIP exclusivo animado',
       'Grupo VIP no Telegram',
       'Convites para eventos ao vivo',
-      'Cashback em palpites',
+      'Cashback em previsões',
     ],
     cta: 'Assinar VIP',
     ctaVariant: 'gold' as const,
@@ -95,7 +95,7 @@ const Planos = () => {
         {/* Hero */}
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
-            Leve seus palpites<br /><span className="text-gradient-primary">pro próximo nível</span>
+            Leve suas previsões<br /><span className="text-gradient-primary">pro próximo nível</span>
           </h2>
           <p className="text-muted-foreground max-w-md mx-auto">
             Escolha o plano ideal e desbloqueie o máximo da plataforma. Cancele quando quiser.
