@@ -32,18 +32,18 @@ export function Sidebar() {
           ))}
         </div>
       ))}
-      <div className="sidebar-foot">
-        <div className="balance-card">
-          <div className="balance-label">Saldo</div>
-          <div className="balance-value">
-            R$ {user ? balance.toFixed(2) : "0,00"}
+      {user && (
+        <div className="sidebar-foot">
+          <div className="balance-card">
+            <div className="balance-label">Saldo</div>
+            <div className="balance-value">R$ {balance.toFixed(2)}</div>
+            <div className="balance-pnl">+R$ 124,80 (+2,4%) hoje</div>
           </div>
-          <div className="balance-pnl">+R$ 124,80 (+2,4%) hoje</div>
+          <Link href="/wallet?action=deposit" className="btn btn-primary btn-block">
+            <Icon name="plus" size={14} /> Depositar
+          </Link>
         </div>
-        <Link href="/wallet?action=deposit" className="btn btn-primary btn-block">
-          <Icon name="plus" size={14} /> Depositar
-        </Link>
-      </div>
+      )}
     </aside>
   );
 }
