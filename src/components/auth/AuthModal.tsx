@@ -57,9 +57,8 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
   };
 
   return (
-    <>
-      <div className="modal-bg" onClick={onClose} />
-      <div className="modal auth-modal">
+    <div className="modal-bg" onClick={onClose}>
+      <div className="modal auth-modal" onClick={(e) => e.stopPropagation()}>
         <div className="auth-head">
           <div className="brand">
             <div className="brand-mark">é</div>
@@ -154,6 +153,6 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
           </form>
         )}
       </div>
-    </>
+    </div>
   );
 }
