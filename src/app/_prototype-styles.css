@@ -1821,7 +1821,14 @@ a { color: inherit; text-decoration: none; }
    ===================================================================== */
 
 /* Garantir que conteúdo nunca estoure horizontalmente */
-html, body { max-width: 100vw; overflow-x: hidden; }
+html, body { max-width: 100vw; overflow-x: hidden; width: 100%; }
+body { min-width: 0; }
+
+/* O grid raiz precisa preencher a viewport inteira em qualquer cenário,
+   inclusive se o iOS Safari decidir aplicar viewport fictício */
+.app { width: 100%; min-width: 0; }
+.main { min-width: 0; }
+.topbar { min-width: 0; }
 
 /* Permitir que children flexíveis encolham (necessário para o search ocupar
    espaço sem empurrar a topbar) */
