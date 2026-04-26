@@ -1815,3 +1815,224 @@ a { color: inherit; text-decoration: none; }
     transition: none !important;
   }
 }
+
+/* =====================================================================
+   ============ Responsividade Mobile (overrides finais) ===============
+   ===================================================================== */
+
+/* Garantir que conteúdo nunca estoure horizontalmente */
+html, body { max-width: 100vw; overflow-x: hidden; }
+
+/* Permitir que children flexíveis encolham (necessário para o search ocupar
+   espaço sem empurrar a topbar) */
+.topbar > * { min-width: 0; }
+
+/* ---- Tablet / mobile largo (≤900px) ----
+   A grid principal já vira 1 coluna nesse breakpoint via regra acima;
+   aqui adicionamos os ajustes de chrome */
+@media (max-width: 900px) {
+  :root {
+    --topbar-h: 56px;
+    --tabbar-h: 60px;
+  }
+
+  .topbar {
+    padding: 0 var(--s-3);
+    gap: var(--s-2);
+  }
+
+  /* Brand reduz no mobile mas mantém o logo */
+  .brand { font-size: 16px; gap: 6px; }
+  .brand-mark { width: 28px; height: 28px; font-size: 14px; }
+
+  /* Search vira o "centro" do topbar e respeita o espaço */
+  .search { flex: 1 1 auto; min-width: 0; max-width: none; }
+  .search-input { height: 36px; font-size: 14px; padding: 0 12px 0 34px; }
+  .search-input::placeholder { font-size: 13px; }
+  .search-icon { left: 10px; }
+  .search-kbd { display: none; }
+
+  /* Pop-over de busca alinhado à viewport para não vazar */
+  .search-pop {
+    position: fixed;
+    left: var(--s-3);
+    right: var(--s-3);
+    top: calc(var(--topbar-h) + 6px);
+    max-height: calc(100vh - var(--topbar-h) - var(--tabbar-h) - 24px);
+  }
+
+  .iconbtn { width: 36px; height: 36px; }
+  .topbar-right { gap: 6px; }
+
+  /* Botões principais do topbar mais compactos */
+  .topbar-right .btn { height: 34px; font-size: 12.5px; padding: 0 12px; }
+
+  /* Page com gutter menor */
+  .page { padding: var(--s-4) var(--s-3); }
+
+  /* Hero empilhado */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: var(--s-4);
+    gap: var(--s-3);
+    margin-bottom: var(--s-4);
+    border-radius: var(--r-md);
+  }
+  .hero h1 { font-size: 20px; line-height: 1.2; }
+  .hero p { font-size: 13px; margin-bottom: var(--s-3); }
+  .hero-stats { gap: var(--s-3); }
+  .hero-stat .v { font-size: 16px; }
+  .hero-cta { min-width: 0; width: 100%; }
+
+  /* Sections */
+  .section { margin-bottom: var(--s-6); }
+  .section-head {
+    flex-wrap: wrap;
+    gap: var(--s-2);
+    margin-bottom: var(--s-3);
+  }
+  .section-title { font-size: 17px; }
+  .section-sub { font-size: 12px; }
+  .section-actions { width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .section-actions::-webkit-scrollbar { display: none; }
+  .tabs { flex-shrink: 0; }
+
+  /* Market grid mobile: 1 coluna confortável + cards menores */
+  .market-grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-3);
+  }
+  .market-card { padding: var(--s-3); border-radius: var(--r-md); gap: 10px; }
+  .market-card .mc-thumb { width: 40px; height: 40px; font-size: 20px; }
+  .market-card .mc-title { font-size: 13.5px; }
+  .market-card .mc-prob { font-size: 20px; min-width: 50px; }
+  .market-card .mc-actions button { height: 34px; font-size: 12px; }
+  .market-card .mc-foot { font-size: 10.5px; gap: 8px; flex-wrap: wrap; }
+  .fav-btn { opacity: 1; } /* sem hover no touch */
+
+  /* Multi-card */
+  .multi-card { padding: var(--s-3); }
+  .multi-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "name pct"
+      "buys buys";
+    gap: 8px;
+    padding: 10px 4px;
+  }
+  .multi-row > .multi-name { grid-area: name; min-width: 0; }
+  .multi-row > .multi-name { overflow: hidden; text-overflow: ellipsis; }
+  .multi-row > .multi-pct { grid-area: pct; }
+  .multi-row > .multi-mini-yes { grid-area: buys; justify-self: stretch; }
+  .multi-row > .multi-mini-no  { display: none; } /* esconde "Não" no mobile p/ não esmagar */
+  .multi-row:hover { margin: 0; padding: 10px 4px; background: transparent; }
+
+  /* Detalhe de mercado */
+  .detail-grid { gap: var(--s-3); }
+  .detail-card { padding: var(--s-3); border-radius: var(--r-md); }
+  .detail-head {
+    grid-template-columns: 44px 1fr;
+    gap: var(--s-3);
+  }
+  .detail-head .d-thumb { width: 44px; height: 44px; font-size: 22px; }
+  .detail-head h1 { font-size: 18px; }
+  .detail-head .detail-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .detail-meta { font-size: 11px; gap: var(--s-2); }
+
+  .chart-wrap { height: 240px; margin: 0 -4px; }
+
+  /* Order panel — não fica sticky no mobile, vira "card" inline */
+  .order-card {
+    position: static;
+    top: auto;
+  }
+  .order-quick { grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .order-quick button { height: 32px; font-size: 11.5px; }
+  .order-input { font-size: 16px; padding: 10px 12px; }
+
+  /* Sub-tabs scroll horizontal */
+  .subtabs {
+    overflow-x: auto;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+    gap: var(--s-3);
+  }
+  .subtabs::-webkit-scrollbar { display: none; }
+  .subtab { white-space: nowrap; padding: 10px 2px; font-size: 12.5px; }
+
+  /* Cat-rail é um carrossel — garantir scroll suave e no overflow do pai */
+  .cat-rail { margin: 0 calc(var(--s-3) * -1) var(--s-3); padding: var(--s-2) var(--s-3); scroll-snap-type: x proximity; }
+  .cat-chip { scroll-snap-align: start; padding: 7px 12px; font-size: 12.5px; }
+
+  /* Wallet stats */
+  .wallet-grid { grid-template-columns: 1fr; gap: var(--s-3); }
+  .stat-card { padding: var(--s-4); border-radius: var(--r-md); }
+  .stat-value { font-size: 22px; }
+
+  /* Position list */
+  .position-row { padding: var(--s-3); }
+
+  /* Activity rail */
+  .activity-row { grid-template-columns: 24px 1fr auto; gap: var(--s-2); }
+  .activity-text { font-size: 12px; line-height: 1.35; }
+  .activity-time { font-size: 10px; }
+
+  /* TabBar — espaço maior para os ícones */
+  .tabbar { height: var(--tabbar-h); }
+  .tab-item { font-size: 10px; gap: 2px; }
+  .tab-item .tab-ico { width: 20px; height: 20px; }
+
+  /* Modal de auth ocupa quase toda a tela */
+  .modal, .auth-modal { width: 100%; max-width: 100%; max-height: 100vh; border-radius: var(--r-lg); }
+  .modal-bg { padding: var(--s-3); align-items: end; }
+  .modal-head { padding: var(--s-4) var(--s-4) 0; }
+  .modal-body { padding: var(--s-3) var(--s-4) var(--s-4); }
+
+  /* Drawer ocupa 86% da tela e fica abaixo do topbar */
+  .drawer { width: 86vw; max-width: 320px; padding-top: var(--s-3); }
+
+  /* Profile menu — encostado na borda direita sem vazar */
+  .profile-menu {
+    right: 0;
+    left: auto;
+    min-width: 240px;
+    max-width: calc(100vw - 24px);
+  }
+
+  /* Brand "BR" oculto via .hide-mobile já existe, mantemos */
+}
+
+/* ---- Mobile estreito (≤480px) ---- */
+@media (max-width: 480px) {
+  :root { --topbar-h: 54px; }
+
+  .page { padding: var(--s-3) var(--s-3) var(--s-4); }
+
+  .hero h1 { font-size: 18px; }
+  .hero-stats { gap: var(--s-2); }
+  .hero-stat .v { font-size: 15px; }
+  .hero-stat .l { font-size: 10px; }
+
+  .section-title { font-size: 16px; }
+
+  .market-card .mc-prob { font-size: 18px; min-width: 44px; }
+  .market-card .mc-prob .pct { font-size: 11px; }
+  .market-card .mc-thumb { width: 36px; height: 36px; font-size: 18px; }
+
+  .detail-head h1 { font-size: 17px; }
+  .chart-wrap { height: 200px; }
+
+  /* Esconder o texto da brand em telas muito estreitas; ícone segue */
+  .brand span { display: none; }
+}
+
+/* ---- Touch targets: garantir pelo menos 44px de toque para botões críticos ---- */
+@media (hover: none) and (pointer: coarse) {
+  .btn-yes-soft, .btn-no-soft { height: 40px; }
+  .iconbtn { min-width: 40px; min-height: 40px; }
+  .multi-mini-yes, .multi-mini-no { height: 32px; }
+}
