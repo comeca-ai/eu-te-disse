@@ -1,202 +1,93 @@
-# Eu Te Disse
+# Eutedisse — Polymarket BR
 
-Plataforma de mercados de previsão onde usuários fazem previsões sobre futebol, política, economia, entretenimento e mais. Sistema de gamificação com XP, missões, ranking e badges.
+Primeiro site brasileiro de mercados de previsão. Stack: **Next.js 15 (App Router) + TypeScript + Tailwind + Supabase + Vercel**.
 
-## Stack
+## Estrutura
 
-- **Frontend**: React 18 + TypeScript + Vite
-- **Backend**: Supabase (PostgreSQL + Auth + Edge Functions + RLS)
-- **UI**: Tailwind CSS + shadcn/ui + Radix UI
-- **Charts**: Recharts
-- **Routing**: React Router DOM 6
-- **State**: TanStack React Query
+```
+web/
+├── src/
+│   ├── app/                      # Rotas (App Router)
+│   │   ├── page.tsx              # Home
+│   │   ├── market/[id]/          # Detalhe de mercado
+│   │   ├── category/[id]/        # Listagem por categoria
+│   │   ├── trending/             # Em alta
+│   │   ├── watchlist/            # Acompanhando
+│   │   ├── wallet/               # Carteira
+│   │   ├── auth/callback/        # OAuth callback Supabase
+│   │   ├── globals.css           # Tokens + reset
+│   │   └── _prototype-styles.css # CSS do design system (vars + componentes)
+│   ├── components/
+│   │   ├── shell/                # AppShell, Topbar, Sidebar, Drawer, TabBar, Search
+│   │   ├── market/               # MarketCard, MultiCard, LineChart, OrderPanel, Tabs
+│   │   ├── auth/                 # AuthProvider, AuthModal
+│   │   ├── ui/                   # ToastProvider
+│   │   ├── Icon.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Crumbs.tsx
+│   │   └── CategoryRail.tsx
+│   ├── lib/
+│   │   ├── supabase/             # client.ts (browser) + server.ts
+│   │   ├── db/markets.ts         # Fetchers com fallback para mocks
+│   │   ├── actions/              # Server Actions (trades, watchlist)
+│   │   ├── markets-data.ts       # Mocks + helpers
+│   │   └── types.ts
+│   └── middleware.ts             # Refresh de sessão Supabase
+├── supabase/
+│   ├── migrations/               # 0001_init_schema.sql, 0002_seed_data.sql
+│   └── README.md
+├── .env.example
+├── package.json
+├── tailwind.config.ts
+└── tsconfig.json
+```
 
-## Como rodar
+## Como rodar local
 
-```sh
-git clone <URL_DO_REPO>
-cd eu-te-disse
+```bash
+cd web
 npm install
-npm run dev        # Servidor de desenvolvimento na porta 8080
+cp .env.example .env.local
+# preencha NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY (ver supabase/README.md)
+npm run dev
 ```
 
-### Variáveis de ambiente
+Sem chaves do Supabase, o app já funciona com **dados mockados** — você consegue navegar todas as páginas e o protótipo está visualmente fiel ao design original. Auth e trades ficam desabilitados até você plugar o Supabase.
 
-Criar `.env` na raiz:
+## Deploy Vercel
 
-```
-VITE_SUPABASE_URL=<url-do-projeto-supabase>
-VITE_SUPABASE_PUBLISHABLE_KEY=<chave-anon-publica>
-```
+```bash
+# 1) Suba para o GitHub
+git init && git add . && git commit -m "init: eutedisse"
+git remote add origin <seu-repo>
+git push -u origin main
 
-### Scripts disponíveis
+# 2) No Vercel
+# - Import do repo
+# - Root Directory: web/
+# - Framework: Next.js (autodetect)
+# - Adicione as Environment Variables (mesmas do .env.local)
+# - Deploy
 
-| Comando | Descrição |
-|---------|-----------|
-| `npm run dev` | Dev server com hot reload |
-| `npm run build` | Build de produção |
-| `npm run lint` | Lint com ESLint |
-| `npm run test` | Testes com Vitest |
-
-## Estrutura do projeto
-
-```
-src/
-├── pages/                  # Páginas da aplicação
-│   ├── Index.tsx           # Home — feed de mercados, categorias, widgets
-│   ├── Login.tsx           # Login com email/senha
-│   ├── Signup.tsx          # Cadastro (nome, CPF, sexo, UF, nascimento)
-│   ├── MarketDetail.tsx    # Detalhe do mercado — gráfico, sentimento, comentários
-│   ├── Ranking.tsx         # Leaderboard global (semanal/mensal)
-│   ├── Missions.tsx        # Missões diárias/semanais/especiais com XP
-│   ├── Portfolio.tsx       # Carteira — posições ativas, P&L
-│   ├── Profile.tsx         # Perfil — stats, badges, nível
-│   ├── HowItWorks.tsx      # Tutorial — 3 passos, pilares, FAQ
-│   ├── Admin.tsx           # Painel admin — gestão de usuários e roles
-│   ├── Planos.tsx          # Planos de assinatura (Free, Pro, VIP)
-│   └── NotFound.tsx        # Página 404
-├── components/
-│   ├── layout/             # AppLayout, BottomNav
-│   ├── market/             # MarketCard, CategoryBadge, MiniSparkline
-│   ├── gamification/       # StreakWidget, XPWidget, MissionCard
-│   └── ui/                 # 50+ componentes shadcn/ui
-├── contexts/
-│   └── AuthContext.tsx      # Auth state, profile, admin check
-├── hooks/                  # use-toast, use-theme, use-mobile
-├── integrations/
-│   └── supabase/           # Client e tipos gerados
-├── data/
-│   └── mockData.ts         # 12 mercados de exemplo
-└── App.tsx                 # Rotas e providers
+# Ou via CLI:
+npx vercel --prod
 ```
 
-## Banco de dados (Supabase)
+## Próximos passos (depois que o Supabase voltar a estar ativo)
 
-### Tabelas
+1. Aplicar migrações: `supabase db push` (ou colar no SQL Editor)
+2. Pegar as chaves em **Settings → API** e setar no `.env.local` + Vercel
+3. O app automaticamente passa a usar dados reais (o fallback de mock só roda se as envs estiverem vazias)
+4. Testar fluxo: criar conta → confirmar email → fazer aposta de R$ 10 → ver na carteira
 
-**profiles**
-| Coluna | Tipo | Descrição |
-|--------|------|-----------|
-| id | UUID (PK) | ID do perfil |
-| user_id | UUID (FK → auth.users) | Usuário Supabase |
-| full_name | TEXT | Nome completo |
-| cpf | TEXT (UNIQUE) | CPF |
-| status | TEXT | 'approved' (default) |
-| sex | TEXT | 'M', 'F', 'O' |
-| uf | TEXT | Estado (sigla) |
-| birth_date | DATE | Data de nascimento |
+## Validação e segurança
 
-**user_roles**
-| Coluna | Tipo | Descrição |
-|--------|------|-----------|
-| id | UUID (PK) | — |
-| user_id | UUID (FK) | Usuário |
-| role | app_role | 'admin', 'moderator', 'user' |
+- Forms validados com **Zod** + **react-hook-form** (`AuthModal`)
+- Server Actions com Zod no schema (`actions/trades.ts`)
+- RLS habilitada em todas as tabelas (`profiles`, `watchlist`, `trades`, `transactions`)
+- Middleware refresca sessão a cada navegação
+- Error boundaries: `app/error.tsx`, `app/not-found.tsx`
 
-**missions**
-| Coluna | Tipo | Descrição |
-|--------|------|-----------|
-| id | UUID (PK) | — |
-| title | TEXT | Título da missão |
-| description | TEXT | Descrição |
-| xp | INTEGER | Recompensa em XP (default: 50) |
-| total | INTEGER | Meta de conclusão |
-| type | TEXT | 'daily', 'weekly', 'special' |
-| icon | TEXT | Emoji (default: 🎯) |
-| status | TEXT | 'active', 'expired' |
-| expires_at | TIMESTAMPTZ | Expiração |
+## Tema, densidade e acessibilidade
 
-**user_missions**
-| Coluna | Tipo | Descrição |
-|--------|------|-----------|
-| id | UUID (PK) | — |
-| user_id | UUID (FK) | Usuário |
-| mission_id | UUID (FK → missions) | Missão |
-| progress | INTEGER | Progresso atual |
-| completed | BOOLEAN | Se concluiu |
-
-**markets** *(migration pendente de aplicar)*
-| Coluna | Tipo | Descrição |
-|--------|------|-----------|
-| id | UUID (PK) | — |
-| question | TEXT | Pergunta do mercado |
-| description | TEXT | Descrição detalhada |
-| category | TEXT | Categoria (futebol, politica, etc.) |
-| category_icon | TEXT | Emoji da categoria |
-| source | TEXT | Fonte oficial de resolução |
-| probability | INTEGER | Probabilidade atual (0-100) |
-| volume | INTEGER | Total de cotas apostadas |
-| status | TEXT | 'open', 'resolved', 'cancelled' |
-| outcome | BOOLEAN | Resultado (null enquanto aberto) |
-| hot | BOOLEAN | Se está em destaque |
-| deadline | TIMESTAMPTZ | Prazo para resolução |
-
-**bets** *(migration pendente de aplicar)*
-| Coluna | Tipo | Descrição |
-|--------|------|-----------|
-| id | UUID (PK) | — |
-| user_id | UUID (FK → auth.users) | Usuário que apostou |
-| market_id | UUID (FK → markets) | Mercado |
-| position | TEXT | 'sim' ou 'nao' |
-| amount | INTEGER | Quantidade de cotas |
-| price_at_purchase | INTEGER | Preço pago por cota (1-99 centavos) |
-| payout | INTEGER | Pagamento após resolução (0 ou 100) |
-
-### Triggers e Functions
-
-- **handle_new_user()**: Cria perfil automaticamente no signup com status='approved'
-- **update_updated_at_column()**: Atualiza timestamp em mudanças no perfil
-- **recalculate_market_probability()**: Recalcula probabilidade do mercado a cada nova aposta
-- **resolve_market(market_id, outcome)**: Resolve mercado e calcula payouts dos apostadores
-
-### RLS (Row Level Security)
-
-- Perfis: usuário lê/edita o próprio; admin lê todos
-- Roles: usuário vê as próprias; admin vê todas
-- Missões: leitura pública; admin gerencia
-- User missions: usuário gerencia as próprias
-- Markets: leitura pública; admin cria/edita
-- Bets: usuário lê/cria as próprias; admin lê todas
-
-## Funcionalidades
-
-### Para usuários
-- **Mercados**: Navegar por categorias (⚽ Futebol, 🏛️ Política, 📈 Economia, 📺 BBB/TV, 💻 Tech, 🌦️ Clima, 🎬 Cultura Pop, 🏅 Esportes)
-- **Previsões**: Comprar cotas "Sim" ou "Não" na probabilidade atual
-- **Carteira**: Acompanhar posições, lucro/prejuízo, acurácia
-- **Ranking**: Competir no leaderboard global semanal/mensal
-- **Missões**: Completar desafios diários/semanais para ganhar XP
-- **Perfil**: Ver estatísticas, badges, nível, conquistas
-- **Social**: Comentar em mercados, ver sentimento da comunidade
-
-### Para admins
-- Gerenciar usuários e roles
-- Criar/editar/expirar missões
-- Criar/editar/resolver mercados de previsão
-
-### Planos de assinatura
-| Plano | Preço | Destaques |
-|-------|-------|-----------|
-| **Free** | R$ 0 | 5 previsões/dia, mercados públicos, missões básicas |
-| **Pro** | R$ 19,90/mês | Ilimitado, mercados exclusivos, XP dobrado |
-| **VIP** | R$ 49,90/mês | Tudo do Pro + mercados customizados, suporte prioritário, grupo Telegram |
-
-## Autenticação
-
-- Signup com email/senha + dados (nome, CPF, sexo, UF, nascimento)
-- Confirmação por email
-- Perfil criado automaticamente via trigger
-- Acesso imediato após confirmação (sem aprovação manual)
-- Admin verificado via tabela `user_roles`
-
-## Edge Functions
-
-### expire-missions
-Função agendada (Deno) que marca missões com `expires_at < now()` como `status = 'expired'`.
-
-## Tema
-
-- Modo claro/escuro automático (segue sistema)
-- Fontes: Space Grotesk (títulos) + DM Sans (corpo)
-- Cores principais: roxo (primary), ciano (secondary), dourado (gold)
-- Efeitos: glass blur, gradientes, glow, animações (float, slide-up, fade-in)
+O CSS usa CSS custom properties — você troca `data-theme="light|dark"` e `data-density="cozy|compact"` no `<html>` em runtime. Layout responsivo com sidebar no desktop e tabbar + drawer no mobile (breakpoint 900px).

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importa o sistema de tokens + componentes do protótipo (CSS-vars based, light/dark, density) */
+@import "./_prototype-styles.css";
+
+/* Inter Tight via Google Fonts (substitui o woff2 inlinado do bundle) */
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
